@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .songti {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 20px;
+    }
+</style>
+
+<body>
+    <div id="seal">
+        <canvas id="canvas" width="200" height="200"></canvas>
+        <img id="sealImg" />
+    </div>
+</body>
+<script src="./newEseal.js"></script>
+<script>
+    // // function date() {
+    // //     var lineWidth = document.getElementById('lineWidth').value
+    // //     this.init(lineWidth)
+    // // }
+    // function init(lineWidth1, companyName1, ) {
+    //     // console.log(lineWidth)
+    //     // var sealEnumss = [
+    //     //     { afa: '11123344' },
+    //     //     { wawa: 'sdddffffg' }
+    //     // ]
+    //     // var optionss = [
+    //     //     { app: '12222' },
+    //     //     { app: '22222' }
+    //     // ]
+    //     // var opt = [];
+    //     // function pushArry(x, y, z) {
+    //     //     var text1 = { sun: z }
+    //     //     optionss.push(text1)
+    //     //     console.log(optionss)
+    //     //     var a = true
+    //     //     if (a == true) {
+    //     //         opt.splice(0, 2);//arr→[1,2,4,5]  当然，也可以删除多个，修改第二个参数即可
+    //     //         opt.push(sealEnumss[x])
+    //     //         opt.push(optionss[y])
+    //     //         // alert(optionss)
+    //     //         console.log(opt)
+    //     //     }
+    //     // }
+    //     // pushArry(1, 1, '1111222')
+    //     //
+    //     console.log(lineWidth1)
+    var sealEnums = [
+
+        {
+            type: 1,
+            color: 'red',
+            // 印章半径
+            radius: 21,
+            // 边框线的宽度
+            lineWidth: 1.2,
+            //是否有内边线
+            hasInnerLine: false,
+            // 内边框线的宽度
+            innerLineWidth: '0.5',
+            //内边线到外边线的距离
+            innerLineDistance: '1',
+            // 机构名称
+            groupName: '江苏敏行信息技术有限公司',
+            // 机构名称字体大小
+            groupNameFontSize: 23,
+            // 机构名称字体
+            fontFamily: 'SimSun',
+            //机构名称文字环绕度数
+            characterDegree: 210,
+            //机构名称文字间距
+            companyFontWidth: 2,
+            // 机构名称、防伪码字与边框的距离
+            lineTextGap: 0.8,
+            //防伪码
+            securityCode: '1234561891234',
+            //防伪码字体大小
+            securityCodeFontSize: '7',
+            //防伪码字宽
+            securityCodeWidth: 1.5,
+            //印章名称
+            drawSealName: '采购专用章',
+            //印章名称字体大小
+            typeNameFontSize: 18,
+            //印章名称位置
+            charactLocation: 10,
+            //印章名称文字间距
+            typeNameMaxWidth: 20,
+            //五角星
+            starX: '13',
+            //五角星Y轴的偏移
+            fiveStarX: '-1.5'
+
+        },
+        {
+            type: 1,
+            color: 'red',
+            radius: 21,
+            lineWidth: 1.2,
+            hasInnerLine: false,
+            innerLineWidth: '0.5',
+            innerLineDistance: '1',
+            groupName: '中国电信集团有限公司江苏分公司',
+            groupNameFontSize: 34,
+            fontFamily: 'SimSun',
+            characterDegree: 230,
+            lineTextGap: 0.8,
+            companyFontWidth: 3,
+            securityCodeFontSize: '7',
+            securityCodeWidth: 1.5,
+            securityCode: '1234561891234',
+            drawSealName: '采购专用章',
+            typeNameFontSize: 25,
+            charactLocation: 10,
+            typeNameMaxWidth: 20,
+            starX: '13',
+            fiveStarX: '0',
+        },
+    ]
+
+    let minxingSeal = new wafaSeal.roundSeal('canvas', sealEnums[1]);
+</script>
+
+</html>

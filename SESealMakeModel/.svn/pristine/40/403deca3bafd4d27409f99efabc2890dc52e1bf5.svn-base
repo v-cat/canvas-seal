@@ -1,0 +1,119 @@
+ .eseal-input:after {
+     display: block;
+     content: "clear";
+     height: 0;
+     clear: both;
+     overflow: hidden;
+     visibility: hidden;
+ }
+
+ ul {
+     padding: 0px;
+     margin: 0px;
+     width: 1200px;
+     height: 120px;
+ }
+
+ li {
+     display: inline-block;
+     float: left;
+     list-style: none;
+     margin: 0;
+     padding: 0
+ }
+
+ .seal-name {
+     display: inline-block;
+     padding: 0px 10px;
+     color: black;
+     font-size: 15px;
+ }
+
+ .seal-input {
+     margin: 3px;
+     font-size: 14px;
+     height: 30px;
+     line-height: 30px;
+     outline: none;
+     border: 0.1px solid #b9e1e0;
+     padding: 0px 20px;
+     -webkit-box-sizing: border-box;
+     box-sizing: border-box;
+ }
+
+ .checke {
+     margin: 10px;
+ }
+
+ .seal-inputNum {
+     width: 80px;
+ }
+
+ .seal-inputName {
+     width: 250px;
+ }
+
+ .seal-all {
+     width: 1200px;
+     position: absolute;
+ }
+
+ .eseal {
+     width: 250px;
+     margin-left: 200px;
+     float: left;
+     margin-top: -150px;
+ }
+
+ .seal-btn {
+     padding: 3px 15px;
+     color: #16a8a4;
+     border: 1px solid #16a8a4;
+ }
+
+ .seal-btn:hover {
+     color: white;
+     background: #16a8a4;
+ }
+
+ .eseal-all {
+     width: 1200px;
+     /* height: 400px; */
+     margin: 50px auto;
+     padding: 50px;
+ }
+
+ .eseal-input {
+     position: relative;
+ }
+
+ .eseal-name {
+     font-size: 35px;
+     color: #16a8a4;
+     text-align: center;
+     padding: 30px;
+ }
+
+ #seal {
+     margin-top: -290px;
+     margin-left: 880px;
+     position: absolute;
+ }
+
+ .image {
+     border: 1px solid #b9e1e0;
+     padding: 10px;
+ }
+
+ #sealImg {
+     margin: 0px auto;
+ }
+
+ #canvas {
+     display: none;
+ }
+
+ .seal-bt {
+     margin-top: 30px;
+     text-align: center
+ }

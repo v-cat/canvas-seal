@@ -18,24 +18,13 @@
     <div id="seal">
         <canvas id="canvas" width="200" height="200"></canvas>
         <img id="sealImg" />
-        <!-- <input id="input" value="" onchange=""> -->
-
-    </div>
-    <div class="songti">
-        宋体宋体宋体宋体宋体宋体宋体宋体宋体宋体宋体宋体
-    </div>
-    <div class="kaiti">
-        宋体宋体宋体宋体宋体宋体宋体宋体宋体宋体宋体宋体
     </div>
 </body>
 <script src="./newEseal.js"></script>
 <script>
-    var minxingSeal = new wafaSeal.roundSeal('canvas', {
-        // radius: 75,
-        color: 'red',
-        // // companyName: '江苏敏行信息技术有限公司',
-        // typeName: '财务章',
-        // securityCode: 'hdakhdkashda1',
+    let minxingSeal = new wafaSeal.roundSeal('canvas', {
+        // groupName: 'wqe'
+
     });
 </script>
 

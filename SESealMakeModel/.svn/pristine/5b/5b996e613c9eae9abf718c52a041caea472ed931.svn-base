@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .songti {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 20px;
+    }
+</style>
+
+<body>
+    <div id="seal">
+        <canvas id="canvas" width="200" height="200"></canvas>
+        <img id="sealImg" />
+    </div>
+</body>
+<script src="./newEseal.js"></script>
+<script>
+    // // function date() {
+    // //     var lineWidth = document.getElementById('lineWidth').value
+    // //     this.init(lineWidth)
+    // // }
+    // function init(lineWidth1, companyName1, ) {
+    //     // console.log(lineWidth)
+    //     // var sealEnumss = [
+    //     //     { afa: '11123344' },
+    //     //     { wawa: 'sdddffffg' }
+    //     // ]
+    //     // var optionss = [
+    //     //     { app: '12222' },
+    //     //     { app: '22222' }
+    //     // ]
+
+    //     // var opt = [];
+    //     // function pushArry(x, y, z) {
+    //     //     var text1 = { sun: z }
+    //     //     optionss.push(text1)
+    //     //     console.log(optionss)
+    //     //     var a = true
+    //     //     if (a == true) {
+    //     //         opt.splice(0, 2);//arr→[1,2,4,5]  当然，也可以删除多个，修改第二个参数即可
+    //     //         opt.push(sealEnumss[x])
+    //     //         opt.push(optionss[y])
+    //     //         // alert(optionss)
+    //     //         console.log(opt)
+    //     //     }
+    //     // }
+    //     // pushArry(1, 1, '1111222')
+    //     //
+    //     console.log(lineWidth1)
+    //     var sealEnums = [
+    //         // {
+    //         //     type: '1',
+    //         //     radius: '60',
+    //         //     // groupName: '此点为字的中心点',
+    //         //     groupNameFontSize: '20',
+    //         //     characterDegree: 260,
+    //         //     //字与边框的距离
+    //         //     lineTextGap: '4',
+    //         //     //文字间距
+    //         //     companyFontWidth: '2',
+    //         //     color: 'red',
+    //         //     lineWidth: '5',
+    //         //     hasInnerLine: true,
+    //         //     innerLineWidth: '0.5',
+
+    //         //     securityCode: '1111111111111',
+    //         //     securityCodeFontSize: '10',
+    //         //     drawSealName: 'yyeyeyeyeyee',
+    //         //     typeNameFontSize: '13',
+    //         //     charactLocation: '10',
+    //         //     typeNameMaxWidth: '20',
+    //         // },
+    //         {
+    //             groupName: 'yyyyy',
+    //             color: 'red',
+    //             radius: 60,
+    //             lineWidth: lineWidth1,
+    //             hasInnerLine: false,
+    //             innerLineWidth: 0.5,
+    //             groupName: '',
+    //             characterDegree: 260,
+    //             startIndex: 6,
+    //             math: '',
+    //             step: '',
+    //             lineTextGap: 6.5,
+    //             securityCode: '1111111111111',
+    //             drawSealName: 'yyeyeyeyeyee',
+    //             typeNameFontSize: 13,
+    //             charactLocation: 30,
+    //             typeNameMaxWidth: 20,
+    //         },
+    //         {
+    //             companyName: 'zzzz',
+    //             color: 'red',
+    //             radius: 60,
+    //             lineWidth,
+    //             hasInnerLine: false,
+    //             innerLineWidth: 20,
+    //             groupName: '',
+    //             characterDegree: 260,
+    //             startIndex: 6,
+    //             math: '',
+    //             step: '',
+    //             lineTextGap: 6.5,
+    //             // securityCode: '1111111111111',
+    //             drawSealName: 'yyeyeyeyeyee',
+    //             typeNameFontSize: 13,
+    //             charactLocation: 30,
+    //             typeNameMaxWidth: 20,
+    //         },
+    //     ]
+
+
+    // }
+    // // date()
+
+
+
+
+    let minxingSeal = new wafaSeal.roundSeal('canvas', {
+        // groupName: 'wqe'
+
+    });
+</script>
+
+</html>
