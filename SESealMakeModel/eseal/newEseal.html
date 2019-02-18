@@ -13,51 +13,50 @@
     <div class="eseal-all">
         <div class="eseal-name">
             <b>公司印章制作</b>
-            <span>(单位为毫米)</span>
+            <span>(单位:毫米)</span>
         </div>
         <div class="eseal-input">
-
             <ul class="first">
                 <p>
-                    画布设置
+                    画布设置<span>(单位:毫米)</span>
                 </p>
                 <li class="seal">
                     <span class="seal-name"> 印章大小（半径）: </span>
-                    <input class="seal-inputNum  seal-input" id="canvasSize" width="150" type="text" value='21' oninput=" makeEseal()"
-                        onporpertychange=" makeEseal()" />
+                    <input class="seal-inputNum  seal-input" id="canvasSize" width="150" type="number" value='21'
+                        min="16" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                 </li>
                 <li class="seal">
                     <span class="seal-name"> 外边框线宽: </span>
-                    <input class="seal-inputNum  seal-input" id="lineWidth" width="150" type="text" value='1.2' oninput=" makeEseal()"
-                        onporpertychange=" makeEseal()" />
+                    <input class="seal-inputNum  seal-input" id="lineWidth" width="150" type="number" value='1.2'
+                        min="0" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                 </li>
                 <li class="seal">
                     <span class="seal-name"> 内边框线宽: </span>
-                    <input class="seal-inputNum  seal-input" id="innerLineWidth" width="150" type="text" value='0.5'
-                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                    <input class="seal-inputNum  seal-input" id="innerLineWidth" width="150" type="number" value='0.5'
+                        min="0" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                 </li>
                 <li class="seal">
                     <span class="seal-name"> 内外边线距离: </span>
-                    <input class="seal-inputNum  seal-input" id="innerLineDistance" width="150" type="text" value='0.8'
-                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                    <input class="seal-inputNum  seal-input" id="innerLineDistance" width="150" type="number"
+                        value='0.8' min="0.8" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                 </li>
                 <li class="seal">
                     <span class="seal-name"> 文字到边线距离: </span>
-                    <input class="seal-inputNum  seal-input" id="lineTextGap" width="150" type="text" value='0.8'
-                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                    <input class="seal-inputNum  seal-input" id="lineTextGap" width="150" type="number" value='0.8'
+                        min="0" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                 </li>
                 <li class="seal">
                     <span class="seal-name"> 边线选择 ： </span>
                     <input class=" checke " name="hasInnerLine" type="radio" class="hasInnerLine" oninput=" makeEseal()"
                         onporpertychange=" makeEseal()" /><span>双线边框</span>
-                    <input class="  checke" name="hasInnerLine" type="radio" class="hasInnerLine" checked oninput=" makeEseal()"
-                        onporpertychange=" makeEseal()" /><span>单线边框</span>
+                    <input class="  checke" name="hasInnerLine" type="radio" class="hasInnerLine" checked
+                        oninput=" makeEseal()" onporpertychange=" makeEseal()" /><span>单线边框</span>
                 </li>
             </ul>
 
             <ul class="seconds">
                 <p>
-                    公司名称设置
+                    公司名称设置<span>(单位:毫米)</span>
                 </p>
                 <li class="seal">
                     <span class="seal-name"> 公司名称: </span>
@@ -66,93 +65,83 @@
                 </li>
                 <li class="seal">
                     <span class="seal-name">文字大小: </span>
-                    <input class="seal-inputNum  seal-input" id="groupNameFontSize" width="150" type="text" value='7'
-                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                    <input class="seal-inputNum  seal-input" id="groupNameFontSize" width="150" type="number" value='7'
+                        min="1" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                 </li>
                 <li class="seal">
                     <span class="seal-name"> 文字间距:</span>
-                    <input class="seal-inputNum  seal-input" id="companyFontWidth" width="150" type="text" value='4'
-                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                    <input class="seal-inputNum  seal-input" id="companyFontWidth" width="150" type="number" value='4'
+                        min="1" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                 </li>
                 <li class="seal">
                     <span class="seal-name"> 文字环绕度数:</span>
-                    <input class="seal-inputNum  seal-input" id="characterDegree" width="150" type="text" value='210'
-                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                    <input class="seal-inputNum  seal-input" id="characterDegree" width="150" type="number" value='210'
+                        min="0" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                 </li>
             </ul>
-
             <ul class="seconds">
-
                 <p>
-                    印章名称设置
+                    印章名称设置<span>(单位:毫米)</span>
                 </p>
-
                 <li class="seal">
                     <span class="seal-name"> 印章名称： </span>
                     <input class="seal-inputName seal-input" id="drawSealName" width="150" type="text" value='采购专用章'
                         oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                 </li>
-
                 <li class="seal">
                     <span class="seal-name"> 印章名称文字大小 ： </span>
-                    <input class="seal-inputNum  seal-input" id="drawSealFontSize" width="150" type="text" value='7'
-                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                    <input class="seal-inputNum  seal-input" id="drawSealFontSize" width="150" type="number" value='7'
+                        min="1" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                 </li>
                 <li class="seal">
                     <span class="seal-name"> 印章名称文字间距 ： </span>
-                    <input class="seal-inputNum  seal-input" id="drawSealMaxWidth" width="150" type="text" value='16'
-                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                    <input class="seal-inputNum  seal-input" id="drawSealMaxWidth" width="150" type="number" value='16'
+                        min="1" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                 </li>
                 <li class="seal">
                     <span class="seal-name"> 印章名称位置 ： </span>
-                    <input class="seal-inputNum  seal-input" id="drawSealLocation" width="150" type="text" value='10'
+                    <input class="seal-inputNum  seal-input" id="drawSealLocation" width="150" type="number" value='10'
                         oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                 </li>
             </ul>
-
             <ul class="third">
-
                 <p>
-                    防伪码设置
+                    防伪码设置<span>(单位:毫米)</span>
                 </p>
-
                 <li class="seal">
                     <span class="seal-name"> 防伪码： </span>
-                    <input class="seal-inputName seal-input" id="securityCode" width="150" type="text" value='1234567890123'
-                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                    <input class="seal-inputName seal-input" id="securityCode" width="150" type="text"
+                        value='1234567890123' oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                 </li>
                 <li class="seal">
                     <span class="seal-name"> 防伪码文字大小 ： </span>
-                    <input class="seal-inputNum  seal-input" id="securityCodeFontSize" width="150" type="text" value='3'
-                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                    <input class="seal-inputNum  seal-input" id="securityCodeFontSize" width="150" type="number" min="1"
+                        value='3' oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                 </li>
-                <li class="seal">
-                    <!-- securityCodeWidth -->
-                    <span class="seal-name"> 文字间距: </span>
-                    <input class="seal-inputNum  seal-input" id="securityCodeWidth" width="150" type="text" value='9.2'
-                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
-                </li>
+                <!-- <li class="seal"> -->
+                <!-- securityCodeWidth -->
+                <!-- <span class="seal-name"> 文字间距: </span> -->
+                <!-- <input class="seal-inputNum  seal-input" id="securityCodeWidth" width="150" type="number" min="0.1" -->
+                <!-- value='9.2' oninput=" makeEseal()" onporpertychange=" makeEseal()" /> -->
+                <!-- </li> -->
             </ul>
             <ul class="fourth">
                 <p>
-                    图案设置
+                    图案设置<span>(单位:毫米)</span>
                 </p>
-
                 <li class="seal">
                     <!-- 五角星位置: -->
                     <span class="seal-name"> 五角星大小: </span>
-                    <input class="seal-inputNum  seal-input" id="starX" width="150" type="text" value='13' oninput=" makeEseal()"
-                        onporpertychange=" makeEseal()" />
+                    <input class="seal-inputNum  seal-input" id="starX" width="150" type="number" value='13' min="1"
+                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                 </li>
                 <li class="seal">
                     <!-- 五角星位置: -->
                     <span class="seal-name"> 偏移单位: </span>
-                    <input class="seal-inputNum  seal-input" id="fiveStarX" width="150" type="text" value='0' oninput=" makeEseal()"
-                        onporpertychange=" makeEseal()" />
+                    <input class="seal-inputNum  seal-input" id="fiveStarX" width="150" type="number" value='0'
+                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                 </li>
-
             </ul>
-
         </div>
         <div id="seal">
 
@@ -160,8 +149,8 @@
 
                 <div id="warp">
                     <ul id="tag">
-                        <li>国家印章标准</li>
-                        <li>北京市地方标准</li>
+                        <li>国家公章标准【1993】</li>
+                        <li>北京公章标准【2012】</li>
 
                     </ul>
                     <div id="tagContent">
@@ -238,12 +227,6 @@
 
                     </div>
                 </div>
-
-
-
-
-
-
             </div>
             <div class="sealImgs">
                 <div class="image ">
@@ -262,13 +245,15 @@
 </body>
 <script src="./newEseal.js"></script>
 <script src="./tab.js"></script>
+<script src="./download.js"></script>
 <script>
     function makeEseal() {
         var radius = document.getElementById('canvasSize').value
         var lineWidth = document.getElementById('lineWidth').value
         var hasInnerLine = document.getElementsByName('hasInnerLine')[0].checked
         var innerLineWidth = document.getElementById('innerLineWidth').value
-        var innerLineDistance = document.getElementById('innerLineDistance').value
+        var innerDistance = document.getElementById('innerLineDistance').value
+        var innerLineDistance = 10 * innerDistance
         var groupName = document.getElementById('groupName').value
         var groupNameFontSize = document.getElementById('groupNameFontSize').value
         var characterDegree = document.getElementById('characterDegree').value
@@ -276,7 +261,9 @@
         var lineTextGap = document.getElementById('lineTextGap').value
         var securityCode = document.getElementById('securityCode').value
         var securityCodeFontSize = document.getElementById('securityCodeFontSize').value
-        var securityCodeWidth = document.getElementById('securityCodeWidth').value
+        // var securityCodeWidth = document.getElementById('securityCodeWidth').value
+        // console.log(securityCodeWidth);
+
         var drawSealName = document.getElementById('drawSealName').value
         var drawSealFontSize = document.getElementById('drawSealFontSize').value
         var drawSealMaxWidth = document.getElementById('drawSealMaxWidth').value
@@ -313,7 +300,7 @@
             //防伪码字体大小
             securityCodeFontSize: securityCodeFontSize,
             //防伪码字宽
-            securityCodeWidth: securityCodeWidth,
+            // securityCodeWidth: securityCodeWidth,
             //印章名称
             drawSealName: drawSealName,
             //印章名称字体大小
@@ -331,11 +318,23 @@
     };
     makeEseal()
     function downLoadImage() {
+        var securityCode = document.getElementById('securityCode').value
+        // console.log(securityCode)
+        var groupName = document.getElementById('groupName').value
+        if (securityCode.length > 0 && securityCode.length !== 13) {
+            alert('防伪码只能为13位！')
+            return;
+        }
+        if (groupName.length > 19 || groupName.length <= 0) {
+            alert('请输入1~19个字符！')
+            return;
+        }
         var canvas = document.getElementById('canvas')
-        var a = document.createElement("a");
-        a.href = canvas.toDataURL();
-        a.download = 'ship.png';
-        a.click();
+        // var a = document.createElement("a");
+        var href = canvas.toDataURL();
+        // a.download = 'ship.png';
+        // a.click();
+        download(href, groupName + new Date().getMilliseconds() + '.png', 'application/x-png')
     }
 </script>
 

@@ -43,7 +43,9 @@
         imgName.src = imgSrc
         // console.log(imgName)
         return this.canvas.toDataURL();
+
     }
+
     //圆章
     function roundSeal(id, option) {
         //call 方法第一个参数也是作为函数上下文的对象，但是后面传入的是一个参数列表，而不是单个数组。
@@ -63,7 +65,7 @@
         // 内边框线的宽度
         this.innerLineWidth = this.mmConversionPx(option.innerLineWidth) || this.mmConversionPx(0.5);
         // 机构名称
-        this.groupName = option.groupName || '江苏敏行信息技术有限公司';
+        this.groupName = option.groupName || '';
         // console.log(groupName)
         // 机构名称字体大小
         // 17 / 79.5 * this.radius
@@ -89,16 +91,16 @@
         //防伪码
         this.securityCodeFontSize = this.mmConversionPx(option.securityCodeFontSize) || this.mmConversionPx(9)
         //防伪码字宽
-        this.securityCodeWidth = this.mmConversionPx(option.securityCodeWidth) || this.mmConversionPx(1.5)
-        this.securityCode = option.securityCode || '1234561891234'
+        this.securityCodeWidth = this.mmConversionPx(option.securityCodeWidth) || this.mmConversionPx(10)
+        this.securityCode = option.securityCode || ''
         //印章名称
-        this.drawSealName = option.drawSealName || '采购专用章'
+        this.drawSealName = option.drawSealName || ''
         this.drawSealFontSize = this.mmConversionPx(option.drawSealFontSize) || this.mmConversionPx(6)
         //印章名称位置
-        this.drawSealLocation = this.mmConversionPx(option.drawSealLocation) || this.mmConversionPx(10);
+        this.drawSealLocation = this.mmConversionPx(option.drawSealLocation) || '';
         //印章名称文字间距
         this.drawSealMaxWidth = this.mmConversionPx(option.drawSealMaxWidth) || this.mmConversionPx(20);
-        this.innerLineDistance = this.mmConversionPx(option.innerLineDistance) || this.mmConversionPx(0.8);
+        this.innerLineDistance = this.mmConversionPx(option.innerLineDistance) || this.mmConversionPx(8);
         //五角星
         this.starX = option.starX || 13;
         this.starY = 2 * option.radius
@@ -157,7 +159,7 @@
         this.ctx.strokeStyle = this.color;
         this.ctx.lineWidth = this.innerLineWidth;
         this.ctx.beginPath();
-        var beginY = this.radius - this.lineWidth - this.innerLineWidth - this.innerLineDistance
+        var beginY = this.radius - this.lineWidth - this.innerLineWidth - this.innerLineDistance / 10
         this.ctx.arc(this.radius, this.radius, beginY, 0, Math.PI * 2, true);
         this.ctx.stroke();
         this.ctx.restore();
@@ -189,8 +191,8 @@
     //机构名称
     roundSeal.prototype._drawGroupName = function _drawGroupName() {
         if (this.groupName.length > 19) {
-            alert('公司名称最多只能为19个字符！')
-            return;
+            // alert('公司名称最多只能为19个字符！')
+            // return;
             // throw new RangeError('公司名称最多只能为19个字符！');
         }
         this._drawText(this.groupName, this.groupNameFontSize, false, false);
@@ -208,14 +210,14 @@
     roundSeal.prototype._drawSecurityCode = function _drawSecurityCode() {
         if (typeof this.securityCode !== 'string') {
             alert('防伪码只能为字符串！')
-            return;
+            // return;
             // throw new TypeError('防伪码只能为字符串！');
         }
-        if (this.securityCode.length !== 13) {
-            alert('防伪码只能为13位！')
-            return;
-            // throw new RangeError('防伪码只能为13位！');
-        }
+        // if (this.securityCode.length !== 13) {
+        //     // alert('防伪码只能为13位！')
+        //     // return;
+        //     // throw new RangeError('防伪码只能为13位！');
+        // }
         this._drawText(this.securityCode, this.securityCodeFontSize, false, true);
     };
     //印章文字判断
@@ -235,9 +237,9 @@
             //公司，防伪码
             if (this.hasInnerLine) {
                 //文字Y轴的位置： 印章的半径-外边线+外边线到内边线的距离+内边线+内边线到文字的距离+一半文字的高度
-                var securityCodeY = this.radius - this.lineWidth - this.innerLineDistance - this.innerLineWidth - this.lineTextGap - (this.securityCodeFontSize / 2)
+                var securityCodeY = this.radius - this.lineWidth - this.innerLineDistance / 10 - this.innerLineWidth - this.lineTextGap - (this.securityCodeFontSize / 2)
                 //文字Y轴的位置：外边线+外边线到内边线的距离+内边线+内边线到文字的距离+一半文字的高度-印章的半径
-                var companyletterY = this.lineWidth + this.innerLineDistance + this.innerLineWidth + this.lineTextGap + (this.groupNameFontSize / 2) - this.radius
+                var companyletterY = this.lineWidth + this.innerLineDistance / 10 + this.innerLineWidth + this.lineTextGap + (this.groupNameFontSize / 2) - this.radius
             } else {
                 //文字Y轴的位置：外边线+外边线到文字的距离 一半文字的高度-印章的半径
                 var companyletterY = this.lineWidth + 3 / 2 * this.lineTextGap + (this.groupNameFontSize / 2) - this.radius
@@ -247,6 +249,7 @@
             for (i = 0; i < text.length; i++) {
                 letter = text[i];
                 if (isSecurityCode) {
+                    // console.log(this.securityCodeWidth)
                     //防伪码
                     this._drawLetter(letter, 0.61 - i * 0.1, securityCodeY, this.securityCodeWidth, false);
                 } else {
@@ -279,7 +282,7 @@
         } else {
             this.ctx.save();
             this.ctx.rotate(angle);
-            this.ctx.fillText(letter, 0, y, maxwidth);
+            this.ctx.fillText(letter, 0, y);
             this.ctx.restore();
         }
     }
@@ -307,7 +310,7 @@
         return c_value;
     }
     var wafaSeal = {
-        roundSeal,
+        roundSeal: roundSeal,
         // Seal,
         // PersonSeal
     };
