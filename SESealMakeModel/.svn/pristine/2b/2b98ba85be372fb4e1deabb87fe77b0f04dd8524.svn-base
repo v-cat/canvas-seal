@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" type="text/css" href="./newEseal.css">
+
+<body>
+    <div class="eseal-all">
+        <div class="eseal-name">
+            <b>公司印章制作</b>
+            <span>(单位为毫米)</span>
+        </div>
+        <div class="eseal-input">
+
+            <ul class="first">
+                <p>
+                    画布设置
+                </p>
+                <li class="seal">
+                    <span class="seal-name"> 印章大小（半径）: </span>
+                    <input class="seal-inputNum  seal-input" id="canvasSize" width="150" type="text" value='21' oninput=" makeEseal()"
+                        onporpertychange=" makeEseal()" />
+                </li>
+                <li class="seal">
+                    <span class="seal-name"> 外边框线宽: </span>
+                    <input class="seal-inputNum  seal-input" id="lineWidth" width="150" type="text" value='1.2' oninput=" makeEseal()"
+                        onporpertychange=" makeEseal()" />
+                </li>
+                <li class="seal">
+                    <span class="seal-name"> 内边框线宽: </span>
+                    <input class="seal-inputNum  seal-input" id="innerLineWidth" width="150" type="text" value='0.5'
+                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                </li>
+                <li class="seal">
+                    <span class="seal-name"> 内外边线距离: </span>
+                    <input class="seal-inputNum  seal-input" id="innerLineDistance" width="150" type="text" value='0.8'
+                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                </li>
+                <li class="seal">
+                    <span class="seal-name"> 文字到边线距离: </span>
+                    <input class="seal-inputNum  seal-input" id="lineTextGap" width="150" type="text" value='0.8'
+                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                </li>
+                <li class="seal">
+                    <span class="seal-name"> 边线选择 ： </span>
+                    <input class=" checke " name="hasInnerLine" type="radio" class="hasInnerLine" oninput=" makeEseal()"
+                        onporpertychange=" makeEseal()" /><span>双线边框</span>
+                    <input class="  checke" name="hasInnerLine" type="radio" class="hasInnerLine" checked oninput=" makeEseal()"
+                        onporpertychange=" makeEseal()" /><span>单线边框</span>
+                </li>
+            </ul>
+
+            <ul class="seconds">
+                <p>
+                    公司名称设置
+                </p>
+                <li class="seal">
+                    <span class="seal-name"> 公司名称: </span>
+                    <input class="seal-inputName seal-input" id="groupName" width="150" type="text" value='江苏敏行信息技术有限公司'
+                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                </li>
+                <li class="seal">
+                    <span class="seal-name">文字大小: </span>
+                    <input class="seal-inputNum  seal-input" id="groupNameFontSize" width="150" type="text" value='7'
+                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                </li>
+                <li class="seal">
+                    <span class="seal-name"> 文字间距:</span>
+                    <input class="seal-inputNum  seal-input" id="companyFontWidth" width="150" type="text" value='4'
+                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                </li>
+                <li class="seal">
+                    <span class="seal-name"> 文字环绕度数:</span>
+                    <input class="seal-inputNum  seal-input" id="characterDegree" width="150" type="text" value='210'
+                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                </li>
+            </ul>
+
+            <ul class="seconds">
+
+                <p>
+                    印章名称设置
+                </p>
+
+                <li class="seal">
+                    <span class="seal-name"> 印章名称： </span>
+                    <input class="seal-inputName seal-input" id="drawSealName" width="150" type="text" value='采购专用章'
+                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                </li>
+
+                <li class="seal">
+                    <span class="seal-name"> 印章名称文字大小 ： </span>
+                    <input class="seal-inputNum  seal-input" id="drawSealFontSize" width="150" type="text" value='7'
+                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                </li>
+                <li class="seal">
+                    <span class="seal-name"> 印章名称文字间距 ： </span>
+                    <input class="seal-inputNum  seal-input" id="drawSealMaxWidth" width="150" type="text" value='16'
+                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                </li>
+                <li class="seal">
+                    <span class="seal-name"> 印章名称位置 ： </span>
+                    <input class="seal-inputNum  seal-input" id="drawSealLocation" width="150" type="text" value='10'
+                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                </li>
+            </ul>
+
+            <ul class="third">
+
+                <p>
+                    防伪码设置
+                </p>
+
+                <li class="seal">
+                    <span class="seal-name"> 防伪码： </span>
+                    <input class="seal-inputName seal-input" id="securityCode" width="150" type="text" value='1234567890123'
+                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                </li>
+                <li class="seal">
+                    <span class="seal-name"> 防伪码文字大小 ： </span>
+                    <input class="seal-inputNum  seal-input" id="securityCodeFontSize" width="150" type="text" value='3'
+                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                </li>
+                <li class="seal">
+                    <!-- securityCodeWidth -->
+                    <span class="seal-name"> 文字间距: </span>
+                    <input class="seal-inputNum  seal-input" id="securityCodeWidth" width="150" type="text" value='9.2'
+                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                </li>
+            </ul>
+            <ul class="fourth">
+                <p>
+                    图案设置
+                </p>
+
+                <li class="seal">
+                    <!-- 五角星位置: -->
+                    <span class="seal-name"> 五角星大小: </span>
+                    <input class="seal-inputNum  seal-input" id="starX" width="150" type="text" value='13' oninput=" makeEseal()"
+                        onporpertychange=" makeEseal()" />
+                </li>
+                <li class="seal">
+                    <!-- 五角星位置: -->
+                    <span class="seal-name"> 偏移单位: </span>
+                    <input class="seal-inputNum  seal-input" id="fiveStarX" width="150" type="text" value='0' oninput=" makeEseal()"
+                        onporpertychange=" makeEseal()" />
+                </li>
+
+            </ul>
+
+        </div>
+        <div id="seal">
+
+            <div class="text">
+
+                <div id="warp">
+                    <ul id="tag">
+                        <li>国家公章标准【1993】</li>
+                        <li>北京公章标准【2012】</li>
+
+                    </ul>
+                    <div id="tagContent">
+                        <div class="J_tabClass">
+                            <strong>
+                                国家印章标准
+                            </strong>
+                            <section>
+                                <span>股份有限公司印章的版面要求包括： </span>
+                                <p>
+                                    1、一律为圆形，直径为4.2cm，圆边宽为0.12cm;
+                                    2、专用章和公司所属部门 印章 直径为4.0cm，圆边宽为0.1cm;
+                                    3、中央刊五角星，五角星外刊企业名称，自左而右环行，或者名称前段自左而右环行，后段自左而右横排，字体为宋体。
+                                </p>
+                            </section>
+                            <section>
+                                <span>有限责任公司印章的版面要求包括： </span>
+                                <p>
+                                    1、一律为圆形，直径为4.0cm;
+                                    2、专用章和公司所属部门印章直径为3.8cm，圆边宽 为0.1cm;
+                                    3、中央刊五角星，五角星外刊企业名称，自左而右环行，或者名称前段自左而右环行，后段自左而右横行，字体为宋体。
+
+                                </p>
+                            </section>
+
+                        </div>
+                        <div class="J_tabClass">
+
+                            <strong>
+                                北京市地方标准
+                            </strong>
+                            <section>
+                                <span> 机关、团体、企业、事业单位公章 机关、团体、企业、事业单位公章的版面要求包括： </span>
+                                <p>
+                                    1、形状为圆形；
+                                    2、边宽1.2mm；
+                                    3、中间为五角星13mm×13mm；
+                                    4、五角星上方环排中文文字高为6.5mm，环排角度（夹角）250°～270°之间，字与边线内侧的 距离0.8mm，字体为宋体；
+                                </p>
+                            </section>
+                            <section>
+                                <span>内设机构、部门公章 内设机构、部门公章的版面要求包括： </span>
+                                <p>
+                                    1、形状为圆形，直径40mm；
+                                    2、边宽1.2mm；
+                                    3、中间为五角星12mm×12mm，五角星上移1.5mm；
+                                    4、五角星上方环排中文文字高为6.5mm，环排角度（夹角）210°，字与边线内侧的距离0.8mm，字体为宋体；
+                                    5、五角星下方横排文字字高6mm，字宽5.2mm，延章中心线到下横排字顶端距离5.1mm，字体为 宋体；
+                                </p>
+                            </section>
+                            <section>
+                                <span>
+                                    财务专用章的版面要求包括：</span>
+                                <p>
+                                    1、形状为1圆形，直径30mm；
+                                    2、边宽1mm；
+                                    3、中间为五角星9mm×9mm，五角星上移1.5mm；
+                                    4、五角星上方环排中文文字高为4.2mm，环排角度（夹角）240°，字与边线内侧的距离0.6mm， 字体为宋体；
+                                    5、五角星下横排文字字高4.8mm，字宽2.6mm, 延章中心线到下横排字顶端距离3.6mm，字体为 宋体；
+                                </p>
+                            </section>
+                            <section>
+                                <span>
+                                    合同章的版面要求包括：</span>
+                                <p>
+                                    1、形状为圆形，直径42mm；
+                                    2、边宽1.2mm；
+                                    3、中间为五角星13mm×13mm，五角星上移1.5mm；
+                                    4、五角星上方环排中文文字高为6mm，环排角度（夹角）250°，字与边线内侧的距离0.8mm，字 体为宋体；
+                                    5、五角星下横排文字字高6mm，字宽5.7mm, 延章中心线到下横排字顶端距离6.1mm，字体为宋 体；
+                                </p>
+                            </section>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="sealImgs">
+                <div class="image ">
+                    <img id="sealImg" />
+                </div>
+                <div class="seal-bt">
+                    <span class="seal-btn" type="button" onclick="javascript: downLoadImage();">保存印章</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div>
+        <canvas id="canvas" width="200" height="200"></canvas>
+    </div>
+</body>
+<script src="./newEseal.js"></script>
+<script src="./tab.js"></script>
+<script src="./download.js"></script>
+<script>
+    function makeEseal() {
+        var radius = document.getElementById('canvasSize').value
+        var lineWidth = document.getElementById('lineWidth').value
+        var hasInnerLine = document.getElementsByName('hasInnerLine')[0].checked
+        var innerLineWidth = document.getElementById('innerLineWidth').value
+        var innerLineDistance = document.getElementById('innerLineDistance').value
+        var groupName = document.getElementById('groupName').value
+        var groupNameFontSize = document.getElementById('groupNameFontSize').value
+        var characterDegree = document.getElementById('characterDegree').value
+        var companyFontWidth = document.getElementById('companyFontWidth').value
+        var lineTextGap = document.getElementById('lineTextGap').value
+        var securityCode = document.getElementById('securityCode').value
+        var securityCodeFontSize = document.getElementById('securityCodeFontSize').value
+        var securityCodeWidth = document.getElementById('securityCodeWidth').value
+        var drawSealName = document.getElementById('drawSealName').value
+        var drawSealFontSize = document.getElementById('drawSealFontSize').value
+        var drawSealMaxWidth = document.getElementById('drawSealMaxWidth').value
+        var drawSealLocation = document.getElementById('drawSealLocation').value
+        var starX = document.getElementById('starX').value
+        var fiveStarX = document.getElementById('fiveStarX').value
+        let minxingSeal = new wafaSeal.roundSeal('canvas', {
+            // type: 1,
+            color: 'red',
+            // 印章半径
+            radius: radius,
+            // 边框线的宽度
+            lineWidth: lineWidth,
+            //是否有内边线
+            hasInnerLine: hasInnerLine,
+            // 内边框线的宽度
+            innerLineWidth: innerLineWidth,
+            //内边线到外边线的距离
+            innerLineDistance: innerLineDistance,
+            // 机构名称
+            groupName: groupName,
+            // 机构名称字体大小
+            groupNameFontSize: groupNameFontSize,
+            // 机构名称字体
+            fontFamily: 'SimSun',
+            //机构名称文字环绕度数
+            characterDegree: characterDegree,
+            //机构名称文字间距
+            companyFontWidth: companyFontWidth,
+            // 机构名称、防伪码字与边框的距离
+            lineTextGap: lineTextGap,
+            //防伪码
+            securityCode: securityCode,
+            //防伪码字体大小
+            securityCodeFontSize: securityCodeFontSize,
+            //防伪码字宽
+            securityCodeWidth: securityCodeWidth,
+            //印章名称
+            drawSealName: drawSealName,
+            //印章名称字体大小
+            drawSealFontSize: drawSealFontSize,
+            //印章名称位置
+            drawSealLocation: drawSealLocation,
+            //印章名称文字间距
+            drawSealMaxWidth: drawSealMaxWidth,
+            //五角星
+            starX: starX,
+            //五角星Y轴的偏移
+            fiveStarX: fiveStarX,
+
+        });
+    };
+    makeEseal()
+    function downLoadImage() {
+        var securityCode = document.getElementById('securityCode').value
+        var groupName = document.getElementById('groupName').value
+        if (securityCode.length !== 13) {
+            alert('防伪码只能为13位！')
+            return;
+        }
+        var canvas = document.getElementById('canvas')
+        // var a = document.createElement("a");
+        var href = canvas.toDataURL();
+        // a.download = 'ship.png';
+        // a.click();
+        download(href, groupName + new Date().getMilliseconds() + '.png', 'application/x-png')
+    }
+</script>
+
+</html>

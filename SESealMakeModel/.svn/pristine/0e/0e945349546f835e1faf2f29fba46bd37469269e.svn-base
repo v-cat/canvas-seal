@@ -1,0 +1,316 @@
+
+(function () {
+    //毫米转像素
+    //调用直接 new unitConversion().pxConversionMm(像素) 
+    //        new unitConversion().mmConversionPx (毫米)      
+    /**
+     * 获取DPI
+     * @returns {Array}
+     */
+    function conversion_getDPI() {
+        var arrDPI = new Array;
+        if (window.screen.deviceXDPI) {
+            arrDPI[0] = window.screen.deviceXDPI;
+            arrDPI[1] = window.screen.deviceYDPI;
+        } else {
+            var tmpNode = document.createElement("DIV");
+            tmpNode.style.cssText = "width:1in;height:1in;position:absolute;left:0px;top:0px;z-index:99;visibility:hidden";
+            document.body.appendChild(tmpNode);
+            arrDPI[0] = parseInt(tmpNode.offsetWidth);
+            arrDPI[1] = parseInt(tmpNode.offsetHeight);
+            tmpNode.parentNode.removeChild(tmpNode);
+        }
+        DPIS = arrDPI[0]
+        // console.log(DPIS)
+        return arrDPI[0];
+    }
+    conversion_getDPI();
+    function Seal(id, option) {
+        //获取canvas
+        // alert(id)
+        this.canvas = document.querySelector(id);
+        // 获取ctx
+        this.ctx = this.canvas.getContext('2d');
+        // this.ctx.scale(4, 4);
+        // 对 option 进行处理，如果没有传入就为空对象
+        option = option || {};
+
+    }
+    Seal.prototype.saveSealImg = function saveSealImg() {
+
+        var imgName = document.getElementById('sealImg')
+        var imgSrc = this.canvas.toDataURL();
+        imgName.src = imgSrc
+        // console.log(imgName)
+        return this.canvas.toDataURL();
+
+    }
+    //圆章
+    function roundSeal(id, option) {
+        //call 方法第一个参数也是作为函数上下文的对象，但是后面传入的是一个参数列表，而不是单个数组。
+        Seal.call(this, id, option)
+        // this.DPI = this.conversion_getDPI();
+        // console.log(this.DPI[0])
+        this.type = option.type || 1;
+        this.color = option.color || 'red';
+        // 印章半径
+        this.radius = this.mmConversionPx(option.radius) || this.mmConversionPx(21);
+        // alert(this.radius)
+        // 边框线的宽度
+        this.lineWidth = this.mmConversionPx(option.lineWidth) || this.mmConversionPx(1.2);
+        // alert(this.lineWidth)
+        //是否有内边线
+        this.hasInnerLine = option.hasInnerLine || false;
+        // 内边框线的宽度
+        this.innerLineWidth = this.mmConversionPx(option.innerLineWidth) || this.mmConversionPx(0.5);
+        // 机构名称
+        this.groupName = option.groupName || '江苏敏行信息技术有限公司';
+        // console.log(groupName)
+        // 机构名称字体大小
+        // 17 / 79.5 * this.radius
+        this.groupNameFontSize = this.mmConversionPx(option.groupNameFontSize) || this.mmConversionPx(7);
+        // 字体
+        this.fontFamily = option.fontFamily || 'SimSun';
+        //文字环绕度数
+        // (this.groupNameFontSize / 2)
+        this.characterDegree = option.characterDegree || 210;
+        // 字数
+        this.startIndex = this.groupName.length - 1;
+        // Math.PI返回圆周率（约等于3.14159）。
+        //（文字环绕度数与总度数的百分比） 转化为圆周率
+        this.math = (this.characterDegree / 360) * Math.PI * 2
+        // alert(parseInt(this.characterDegree) / 360 * Math.PI)
+        // 字与字之间相差的弧度
+        this.step = this.math / this.startIndex;
+        // console.log(this.step, 'qqq')
+        // 字与边框的距离
+        this.lineTextGap = this.mmConversionPx(option.lineTextGap) || this.mmConversionPx(0.8);
+        //文字间距
+        this.companyFontWidth = this.mmConversionPx(option.companyFontWidth) || this.mmConversionPx(2);
+        //防伪码
+        this.securityCodeFontSize = this.mmConversionPx(option.securityCodeFontSize) || this.mmConversionPx(9)
+        //防伪码字宽
+        this.securityCodeWidth = this.mmConversionPx(option.securityCodeWidth) || this.mmConversionPx(1.5)
+        this.securityCode = option.securityCode || '1234561891234'
+        //印章名称
+        this.drawSealName = option.drawSealName || '采购专用章'
+        this.drawSealFontSize = this.mmConversionPx(option.drawSealFontSize) || this.mmConversionPx(6)
+        //印章名称位置
+        this.drawSealLocation = this.mmConversionPx(option.drawSealLocation) || this.mmConversionPx(10);
+        //印章名称文字间距
+        this.drawSealMaxWidth = this.mmConversionPx(option.drawSealMaxWidth) || this.mmConversionPx(20);
+        this.innerLineDistance = this.mmConversionPx(option.innerLineDistance) || this.mmConversionPx(0.8);
+        //五角星
+        this.starX = option.starX || 13;
+        this.starY = 2 * option.radius
+        this.fiveStar = (this.starX / this.starY) * this.radius
+        this.fiveStarX = this.mmConversionPx(option.fiveStarX) || this.mmConversionPx(0);
+        // 初始化
+        this._init();
+    }
+    roundSeal.prototype = Object.create(Seal.prototype);
+    roundSeal.prototype.constructor = roundSeal;
+    roundSeal.prototype._init = function _init() {
+        // console.log(this.type)
+        this.canvas.width = this.canvas.height = this.radius * 2;
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this._drawRoundSealLine();
+        this._drawGroupName();
+        if (this.drawSealName) {
+            // 印章名称
+            this._drawSealName();
+        }
+        // console.log(this.securityCode)
+        if (this.securityCode) {
+            // 防伪码
+            this._drawSecurityCode();
+        }
+        switch (this.type) {
+            case 1:
+                //圆形默认印章
+                this._drawStar();
+            case 2:
+            //圆形国徽印章
+            // this._drawNationalEmblem();
+            case 3:
+            //圆形党徽印章
+            // this._drawPartyEmblem();
+        }
+        this.saveSealImg()
+    }
+    //边框
+    roundSeal.prototype._drawRoundSealLine = function _drawRoundSealLine() {
+        this.ctx.save();
+        // 
+        this.ctx.strokeStyle = this.color;
+        this.ctx.lineWidth = this.lineWidth;
+        this.ctx.beginPath();
+        this.ctx.arc(this.radius, this.radius, this.radius - this.lineWidth, 0, Math.PI * 2, true);
+        this.ctx.stroke();
+        this.ctx.restore();
+        if (this.hasInnerLine) {
+            this._drawInnerLine();
+        }
+    };
+    //内边框
+    roundSeal.prototype._drawInnerLine = function _drawInnerLine() {
+        this.ctx.save();
+        this.ctx.strokeStyle = this.color;
+        this.ctx.lineWidth = this.innerLineWidth;
+        this.ctx.beginPath();
+        var beginY = this.radius - this.lineWidth - this.innerLineWidth - this.innerLineDistance
+        this.ctx.arc(this.radius, this.radius, beginY, 0, Math.PI * 2, true);
+        this.ctx.stroke();
+        this.ctx.restore();
+    };
+    //五角星
+    roundSeal.prototype._drawStar = function _drawStar() {
+        this.ctx.save();
+        this.ctx.strokeStyle = this.color;
+        this.ctx.lineWidth = '0.0001';
+        this.ctx.fillStyle = this.color;
+        this.ctx.translate(this.radius, this.radius - this.fiveStarX); //移动坐标原点
+        this.ctx.rotate(Math.PI); //旋转
+        this.ctx.beginPath(); //创建路径
+        //Math 对象用于执行数学任务。
+        var x = Math.sin(0);
+        var y = Math.cos(0);
+        var dig = Math.PI / 5 * 4;
+        for (var i = 0; i < 5; i++) { //画五角星的五条边  
+            var x = Math.sin(i * dig);
+            var y = Math.cos(i * dig);
+            // 
+            this.ctx.lineTo(x * this.fiveStar, y * this.fiveStar);//五角星线长
+        }
+        this.ctx.closePath();
+        this.ctx.stroke();
+        this.ctx.fill();
+        this.ctx.restore();
+    }
+    //机构名称
+    roundSeal.prototype._drawGroupName = function _drawGroupName() {
+        if (this.groupName.length > 19) {
+            alert('公司名称最多只能为19个字符！')
+            return;
+            // throw new RangeError('公司名称最多只能为19个字符！');
+        }
+        this._drawText(this.groupName, this.groupNameFontSize, false, false);
+    };
+    //印章类型名称
+    roundSeal.prototype._drawSealName = function _drawSealName() {
+        if (typeof this.drawSealName !== 'string') {
+            alert('印章类型名称只能为字符串！')
+            return;
+            // throw new TypeError('印章类型名称只能为字符串！');
+        }
+        this._drawText(this.drawSealName, this.drawSealFontSize, true, false);
+    }
+    //防伪码
+    roundSeal.prototype._drawSecurityCode = function _drawSecurityCode() {
+        if (typeof this.securityCode !== 'string') {
+            alert('防伪码只能为字符串！')
+            // return;
+            // throw new TypeError('防伪码只能为字符串！');
+        }
+        // if (this.securityCode.length !== 13) {
+        //     // alert('防伪码只能为13位！')
+        //     // return;
+        //     // throw new RangeError('防伪码只能为13位！');
+        // }
+        this._drawText(this.securityCode, this.securityCodeFontSize, false, true);
+    };
+    //印章文字判断
+    roundSeal.prototype._drawText = function _drawText(text, fontSize, isTypeName, isSecurityCode) {
+        var i, letter;
+        this.ctx.save();
+        this.ctx.fillStyle = this.color;
+        this.ctx.font = 'normal normal normal ' + fontSize + 'px ' + this.fontFamily;
+        this.ctx.textBaseline = 'middle'; //法在画布上定位文本时
+        this.ctx.textAlign = 'center';
+        this.ctx.translate(this.radius, this.radius);
+        //印章名称=true,公司，防伪码=false
+        if (isTypeName) {
+            //印章名称
+            this.ctx.fillText(text, 0, this.drawSealLocation, this.drawSealMaxWidth);
+        } else {
+            //公司，防伪码
+            if (this.hasInnerLine) {
+                //文字Y轴的位置： 印章的半径-外边线+外边线到内边线的距离+内边线+内边线到文字的距离+一半文字的高度
+                var securityCodeY = this.radius - this.lineWidth - this.innerLineDistance - this.innerLineWidth - this.lineTextGap - (this.securityCodeFontSize / 2)
+                //文字Y轴的位置：外边线+外边线到内边线的距离+内边线+内边线到文字的距离+一半文字的高度-印章的半径
+                var companyletterY = this.lineWidth + this.innerLineDistance + this.innerLineWidth + this.lineTextGap + (this.groupNameFontSize / 2) - this.radius
+            } else {
+                //文字Y轴的位置：外边线+外边线到文字的距离 一半文字的高度-印章的半径
+                var companyletterY = this.lineWidth + 3 / 2 * this.lineTextGap + (this.groupNameFontSize / 2) - this.radius
+                //文字Y轴的位置：印章的半径-(外边线+外边线到内边线的距离+一半文字的高度)
+                var securityCodeY = this.radius - 3 / 2 * this.lineWidth - this.lineTextGap - (this.securityCodeFontSize / 2)
+            }
+            for (i = 0; i < text.length; i++) {
+                letter = text[i];
+                if (isSecurityCode) {
+                    //防伪码
+                    this._drawLetter(letter, 0.61 - i * 0.1, securityCodeY, this.securityCodeWidth, false);
+                } else {
+                    //公司名称
+                    this._drawLetter(letter, i * this.step, companyletterY, this.companyFontWidth, true);
+                }
+            }
+        }
+        this.ctx.restore();
+    }
+    //文字实现方式
+    roundSeal.prototype._drawLetter = function _drawLetter(letter, angle, y, maxwidth, isTranslate) {
+        // if (4 * this.step) {
+        //     this.ctx.restore();
+        // }
+        if (isTranslate) {
+            // switch (angle) {
+            //     case 4 * this.step:
+            //         this.ctx.save();
+            //         this.ctx.rotate(angle);
+            //         this.ctx.rotate(-this.math / 2)
+            //         this.ctx.fillText(letter, 0, y, maxwidth); // 此点为字的中心点 //
+            //         this.ctx.restore();
+            // }
+            this.ctx.save();
+            this.ctx.rotate(angle);
+            this.ctx.rotate(-this.math / 2)
+            this.ctx.fillText(letter, 0, y, maxwidth); // 此点为字的中心点 //
+            this.ctx.restore();
+        } else {
+            this.ctx.save();
+            this.ctx.rotate(angle);
+            this.ctx.fillText(letter, 0, y, maxwidth);
+            this.ctx.restore();
+        }
+    }
+    /**
+     * px转换为mm
+     * @param value
+     * @returns {number}
+     */
+    // roundSeal.prototype.pxConversionMm = function pxConversionMm(value) {
+    //     var inch = value / this.conversion_getDPI()[0];
+    //     var c_value = Math.round(inch * 25.4);
+    //     // console.log(c_value, 'mm');
+    //     return c_value;
+    // };
+    /**
+     * mm转换为px
+     * @param value
+     * @returns {number}
+     */
+    roundSeal.prototype.mmConversionPx = function mmConversionPx(value) {
+        var inch = value / 25.4;
+
+        var c_value = Math.round(inch * DPIS);
+        // console.log(c_value, 'px');
+        return c_value;
+    }
+    var wafaSeal = {
+        roundSeal: roundSeal,
+        // Seal,
+        // PersonSeal
+    };
+    window.wafaSeal = wafaSeal;
+})();

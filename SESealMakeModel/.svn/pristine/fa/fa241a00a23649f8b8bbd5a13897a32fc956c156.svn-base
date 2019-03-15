@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+</head>
+<link rel="stylesheet" type="text/css" href="./newEseal.css" />
+
+<body>
+    <div class="eseal-all">
+        <div class="eseal-name">
+            <b>公司印章制作</b>
+            <span>(单位:毫米)</span>
+        </div>
+        <div class="eseal-input">
+            <ul class="first">
+                <p>画布设置<span>(单位:毫米)</span></p>
+                <li class="seal">
+                    <span class="seal-name"> 印章大小（半径）: </span>
+                    <input class="seal-inputNum  seal-input" id="canvasSize" width="150" type="number" value="21"
+                        min="1" max="30" readonly unselectable="on" oninput=" makeEseal()"
+                        onporpertychange=" makeEseal()" />
+                    <div class="btnSpan">
+                        <input class="add inputBtn " value="∧" type="button" onclick="add('canvasSize')"> </input>
+                        <input class="subtraction inputBtn inputBtn-top" type="button" value="∨"
+                            onclick="subtraction('canvasSize')"></input>
+                    </div>
+                </li>
+                <li class="seal">
+                    <span class="seal-name"> 圆边宽: </span>
+                    <input class="seal-inputNum  seal-input" id="lineWidth" width="150" type="number" value="1.2"
+                        min="0" max="3" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                    <div class="btnSpan">
+                        <input class="add inputBtn  lineDis" value="∧" type="button" onclick="add('lineWidth')"> </input>
+                        <input class="subtraction inputBtn inputBtn-top lineDis " type="button" value="∨"
+                            onclick="subtraction('lineWidth')"></input>
+                    </div>
+                </li>
+                <li class="seal">
+                    <span class="seal-name"> 内圆边宽: </span>
+                    <input class="seal-inputNum  seal-input" id="innerLineWidth" width="150" type="number" value="0.5"
+                        max="2" readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                    <div class="btnSpan">
+                        <input class="add inputBtn  lineDis" value="∧" type="button" onclick="add('innerLineWidth')"> </input>
+                        <input class="subtraction inputBtn inputBtn-top lineDis" type="button" value="∨"
+                            onclick="subtraction('innerLineWidth')"></input>
+                    </div>
+                </li>
+                <li class="seal">
+                    <span class="seal-name"> 内外边线距离: </span>
+                    <input class="seal-inputNum  seal-input  " id="innerLineDistance" width="150" type="number"
+                        value="0.8" max="5" readonly unselectable="on" oninput=" makeEseal()"
+                        onporpertychange=" makeEseal()" />
+                    <div class="btnSpan">
+                        <input disabled class="add inputBtn lineDis"  value="∧" type="button" onclick="add('innerLineDistance')">
+                        </input>
+                        <input class="subtraction inputBtn inputBtn-top lineDis" type="button" value="∨"
+                            onclick="subtraction('innerLineDistance')"></input>
+                    </div>
+                </li>
+                <li class="seal">
+                    <span class="seal-name"> 文字到边线距离: </span>
+                    <input class="seal-inputNum  seal-input" id="lineTextGap" width="150" type="number" value="0.8"
+                        min="0" max="5" readonly unselectable="on" oninput=" makeEseal()"
+                        onporpertychange=" makeEseal()" />
+                    <div class="btnSpan">
+                        <input class="add inputBtn " value="∧" type="button" onclick="add('lineTextGap')"> </input>
+                        <input class="subtraction inputBtn inputBtn-top" type="button" value="∨"
+                            onclick="subtraction('lineTextGap')"></input>
+                    </div>
+                </li>
+                <li class="seal">
+                    <span class="seal-name"> 边线选择 ： </span>
+                    <input class=" checke " name="hasInnerLine" type="radio" class="hasInnerLine" oninput=" makeEseal()"
+                        onporpertychange=" makeEseal()" /><span>双线边框</span>
+                    <input class="  checke" name="hasInnerLine" type="radio" class="hasInnerLine" checked
+                        oninput=" makeEseal()" onporpertychange=" makeEseal()" /><span>单线边框</span>
+                </li>
+            </ul>
+
+            <ul class="seconds">
+                <p>公司名称设置<span>(单位:毫米)</span></p>
+                <li class="seal">
+                    <span class="seal-name"> 公司名称: </span>
+                    <input class="seal-inputName seal-input" id="groupName" width="150" type="text" value="江苏敏行信息技术有限公司"
+                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                </li>
+                <li class="seal">
+                    <span class="seal-name">文字大小: </span>
+                    <input class="seal-inputNum  seal-input" id="groupNameFontSize" width="150" type="number" value="7"
+                        min="1" max="17" readonly unselectable="on" oninput=" makeEseal()"
+                        onporpertychange=" makeEseal()" />
+                    <div class="btnSpan">
+                        <input class="add inputBtn " value="∧" type="button" onclick="add('groupNameFontSize')">
+                        </input>
+                        <input class="subtraction inputBtn inputBtn-top" type="button" value="∨"
+                            onclick="subtraction('groupNameFontSize')"></input>
+                    </div>
+                </li>
+                <li class="seal">
+                    <span class="seal-name"> 文字宽度比:</span>
+                    <input class="seal-inputNum  seal-input" id="companyFontWidth" width="150" type="number" value="4"
+                        min="1" max="50" readonly unselectable="on" oninput=" makeEseal()"
+                        onporpertychange=" makeEseal()" />
+                    <div class="btnSpan">
+                        <input class="add inputBtn " value="∧" type="button" onclick="add('companyFontWidth')"> </input>
+                        <input class="subtraction inputBtn inputBtn-top" type="button" value="∨"
+                            onclick="subtraction('companyFontWidth')"></input>
+                    </div>
+                </li>
+                <li class="seal">
+                    <span class="seal-name"> 文字环绕度数:</span>
+                    <input class="seal-inputNum  seal-input" id="characterDegree" width="150" type="number" value="210"
+                        min="0" max="360" readonly unselectable="on" oninput=" makeEseal()"
+                        onporpertychange=" makeEseal()" />
+                    <div class="btnSpan">
+                        <input class="add inputBtn " value="∧" type="button" onclick="add('characterDegree')"> </input>
+                        <input class="subtraction inputBtn inputBtn-top" type="button" value="∨"
+                            onclick="subtraction('characterDegree')"></input>
+                    </div>
+                </li>
+            </ul>
+            <ul class="seconds">
+                <p>印章名称设置<span>(单位:毫米)</span></p>
+                <li class="seal">
+                    <span class="seal-name"> 印章名称： </span>
+                    <input class="seal-inputName seal-input" id="drawSealName" width="150" type="text" value="采购专用章"
+                        oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                </li>
+                <li class="seal">
+                    <span class="seal-name"> 文字大小 ： </span>
+                    <input class="seal-inputNum  seal-input" id="drawSealFontSize" width="150" type="number" value="7"
+                        min="1" max="17" readonly unselectable="on" oninput=" makeEseal()"
+                        onporpertychange=" makeEseal()" />
+                    <div class="btnSpan">
+                        <input class="add inputBtn " value="∧" type="button" onclick="add('drawSealFontSize')"> </input>
+                        <input class="subtraction inputBtn inputBtn-top" type="button" value="∨"
+                            onclick="subtraction('drawSealFontSize')"></input>
+                    </div>
+                </li>
+                <li class="seal">
+                    <span class="seal-name"> 文字宽度比： </span>
+                    <input class="seal-inputNum  seal-input" id="drawSealMaxWidth" width="150" type="number" value="16"
+                        min="1" max="50" readonly unselectable="on" oninput=" makeEseal()"
+                        onporpertychange=" makeEseal()" />
+                    <div class="btnSpan">
+                        <input class="add inputBtn " value="∧" type="button" onclick="add('drawSealMaxWidth')"> </input>
+                        <input class="subtraction inputBtn inputBtn-top" type="button" value="∨"
+                            onclick="subtraction('drawSealMaxWidth')"></input>
+                    </div>
+                </li>
+                <li class="seal">
+                    <span class="seal-name"> 到下横排字距离 ： </span>
+                    <input class="seal-inputNum  seal-input" id="drawSealLocation" width="150" type="number" value="6.5"
+                        max="20" readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                    <div class="btnSpan">
+                        <input class="add inputBtn " value="∧" type="button" onclick="add('drawSealLocation')"> </input>
+                        <input class="subtraction inputBtn inputBtn-top" type="button" value="∨"
+                            onclick="subtraction('drawSealLocation')"></input>
+                    </div>
+                </li>
+            </ul>
+            <ul class="third">
+                <p>防伪码设置<span>(单位:毫米)</span></p>
+                <li class="seal">
+                    <span class="seal-name"> 防伪码： </span>
+                    <input class="seal-inputName seal-input" id="securityCode" width="150" type="text"
+                        value="1234567890123" oninput=" makeEseal()" onporpertychange=" makeEseal()" size="13"
+                        maxlength="13" onkeyup="this.value=this.value.replace(/\D/g,'')" />
+                </li>
+                <li class="seal">
+                    <span class="seal-name"> 防伪码文字大小 ： </span>
+                    <input class="seal-inputNum  seal-input" id="securityCodeFontSize" width="150" type="number" min="1"
+                        value="3" max="3.5" readonly unselectable="on" oninput=" makeEseal()"
+                        onporpertychange=" makeEseal()" />
+                    <div class="btnSpan">
+                        <input class="add inputBtn " value="∧" type="button" onclick="add('securityCodeFontSize')">
+                        </input>
+                        <input class="subtraction inputBtn inputBtn-top" type="button" value="∨"
+                            onclick="subtraction('securityCodeFontSize')"></input>
+                    </div>
+                </li>
+
+            </ul>
+            <ul class="fourth">
+                <p>图案设置<span>(单位:毫米)</span></p>
+                <li class="seal">
+                    <!-- 五角星位置: -->
+                    <span class="seal-name"> 五角星大小: </span>
+
+                    <input class="seal-inputNum  seal-input" id="starX" width="150" type="number" value="13" min="1"
+                        max="30" readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+
+                    <div class="btnSpan">
+                        <input class="add inputBtn " value="∧" type="button" onclick="add('starX')"> </input>
+                        <input class="subtraction inputBtn inputBtn-top" type="button" value="∨"
+                            onclick="subtraction('starX')"></input>
+                    </div>
+                </li>
+                <li class="seal">
+                    <!-- 五角星位置: -->
+                    <span class="seal-name"> 偏移单位: </span>
+
+                    <input class="seal-inputNum  seal-input" id="fiveStarX" width="150" value="0" max="3.5"
+                        type="number" readonly unselectable="on" oninput=" makeEseal()"
+                        onporpertychange=" makeEseal()" />
+                    <div class="btnSpan">
+                        <input class="add inputBtn " value="∧" type="button" onclick="add('fiveStarX')"> </input>
+                        <input class="subtraction inputBtn inputBtn-top" type="button" value="∨"
+                            onclick="subtraction('fiveStarX')"></input>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div id="seal">
+            <div class="text">
+                <div id="warp">
+                    <ul id="tag">
+                        <li>国家公章标准【1993】</li>
+                        <li>北京公章标准【2012】</li>
+                    </ul>
+                    <div id="tagContent">
+                        <div class="J_tabClass">
+                            <strong>
+                                国家印章标准
+                            </strong>
+                            <section>
+                                <span>股份有限公司印章的版面要求包括： </span>
+                                <p>
+                                    1、一律为圆形，直径为42mm，圆边宽为1.2mm;
+                                    2、专用章和公司所属部门 印章 直径为40mm，圆边宽为1mm;
+                                    3、中央刊五角星，五角星外刊企业名称，自左而右环行，或者名称前段自左而右环行，后段自左而右横排，字体为宋体。
+                                </p>
+                            </section>
+                            <section>
+                                <span>有限责任公司印章的版面要求包括： </span>
+                                <p>
+                                    1、一律为圆形，直径为40mm;
+                                    2、专用章和公司所属部门印章直径为38mm，圆边宽 为1mm;
+                                    3、中央刊五角星，五角星外刊企业名称，自左而右环行，或者名称前段自左而右环行，后段自左而右横行，字体为宋体。
+                                </p>
+                            </section>
+                        </div>
+                        <div class="J_tabClass">
+                            <strong>
+                                北京市地方标准
+                            </strong>
+                            <section>
+                                <span>
+                                    机关、团体、企业、事业单位公章
+                                    机关、团体、企业、事业单位公章的版面要求包括：
+                                </span>
+                                <p>
+                                    1、形状为圆形； 2、边宽1.2mm； 3、中间为五角星13mm×13mm；
+                                    4、五角星上方环排中文文字高为6.5mm，环排角度（夹角）250°～270°之间，字与边线内侧的
+                                    距离0.8mm，字体为宋体；
+                                </p>
+                            </section>
+                            <section>
+                                <span>内设机构、部门公章 内设机构、部门公章的版面要求包括：
+                                </span>
+                                <p>
+                                    1、形状为圆形，直径40mm； 2、边宽1.2mm；
+                                    3、中间为五角星12mm×12mm，五角星上移1.5mm；
+                                    4、五角星上方环排中文文字高为6.5mm，环排角度（夹角）210°，字与边线内侧的距离0.8mm，字体为宋体；
+                                    5、五角星下方横排文字字高6mm，字宽5.2mm，延章中心线到下横排字顶端距离5.1mm，字体为
+                                    宋体；
+                                </p>
+                            </section>
+                            <section>
+                                <span> 财务专用章的版面要求包括：</span>
+                                <p>
+                                    1、形状为圆形，直径30mm； 2、边宽1mm；
+                                    3、中间为五角星9mm×9mm，五角星上移1.5mm；
+                                    4、五角星上方环排中文文字高为4.2mm，环排角度（夹角）240°，字与边线内侧的距离0.6mm，
+                                    字体为宋体； 5、五角星下横排文字字高4.8mm，字宽2.6mm,
+                                    延章中心线到下横排字顶端距离3.6mm，字体为 宋体；
+                                </p>
+                            </section>
+                            <section>
+                                <span> 合同章的版面要求包括：</span>
+                                <p>
+                                    1、形状为圆形，直径42mm； 2、边宽1.2mm；
+                                    3、中间为五角星13mm×13mm，五角星上移1.5mm；
+                                    4、五角星上方环排中文文字高为6mm，环排角度（夹角）250°，字与边线内侧的距离0.8mm，字
+                                    体为宋体； 5、五角星下横排文字字高6mm，字宽5.7mm,
+                                    延章中心线到下横排字顶端距离6.1mm，字体为宋 体；
+                                </p>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sealImgs">
+                <div class="image ">
+                    <img id="sealImg" />
+                </div>
+                <div class="seal-bt">
+                    <span class="seal-btn" type="button" onclick="javascript: downLoadImage();">保存印章</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <canvas id="canvas" width="200" height="200"></canvas>
+    </div>
+</body>
+<script src="./newEseal.js"></script>
+<script src="./tab.js"></script>
+<script src="./download.js"></script>
+<script>
+    function subtraction(item) {
+        //获取-号按钮
+        // var subtraction = document.getElementsByClassName('subtraction')
+        //获取文本框
+        var number = document.getElementById(item)
+        if (number.value <= 1) {
+            //如果文本框的值小于1,则设置值为1
+            number.value = number.value
+        } else {
+            number.value = (Number(number.value) - 0.1).toFixed(1)
+        }
+        makeEseal()
+    }
+    function add(item) {
+        // var add = document.getElementsByClassName('add')
+        var number = document.getElementById(item)
+        // console.log(number.max)
+        if (Number(number.value) >= Number(number.max)) {
+            //如果文本框的值大于于1,则设置值为1
+            number.value = number.value
+            alert('输入框最大值为' + number.max)
+        } else {
+            number.value = (Number(number.value) + 0.1).toFixed(1)
+        }
+
+        makeEseal()
+    }
+    // function number(item) {
+    //   var number = document.getElementById(item)
+    //   var value = number.value
+    //   //如果文本值为空,设置为1
+    //   if (value == '') {
+    //     number.value = 1
+    //   }
+    //   //如果文本值为非纯数字,设置为1
+    //   //isNaN()是否为非法数字
+    //   if (isNaN(value)) {
+    //     number.value = 1
+    //   }
+    //   //如果文本值小于1,设置为1
+    //   //   if (parseInt(value) <= 1) {
+    //   //     number.value = 1
+    //   //   }
+    // }
+
+    function disableTest(element, val) {
+        document.getElementById(element).disabled = val;
+    }
+    function makeEseal() {
+        var radius = document.getElementById('canvasSize')
+        var lineWidth = document.getElementById('lineWidth')
+        var hasInnerLine = document.getElementsByName('hasInnerLine')
+        var mmm = hasInnerLine[1].checked
+        console.log(mmm)
+             var lineDis = document.getElementsByClassName('lineDis')
+        if (mmm) {
+           document.getElementsByClassName('lineDis').disabled = false;
+        }
+        var innerLineWidth = document.getElementById('innerLineWidth')
+        var innerDistance = document.getElementById('innerLineDistance')
+        var innerLineDistance = 10 * innerDistance
+        var groupName = document.getElementById('groupName')
+        var groupNameFontSize = document.getElementById('groupNameFontSize')
+        var characterDegree = document.getElementById('characterDegree')
+        var companyFontWidth = document.getElementById('companyFontWidth')
+        var lineTextGap = document.getElementById('lineTextGap')
+        var securityCode = document.getElementById('securityCode')
+        var securityCodeFontSize = document.getElementById('securityCodeFontSize')
+        var drawSealName = document.getElementById('drawSealName')
+        var drawSealFontSize = document.getElementById('drawSealFontSize')
+        var drawSealMaxWidth = document.getElementById('drawSealMaxWidth')
+        var drawSealLocation = document.getElementById('drawSealLocation')
+        var starX = document.getElementById('starX')
+        var fiveStarX = document.getElementById('fiveStarX')
+        //   if (Number(fiveStarX.value) > Number(fiveStarX.max)) {
+        //     alert('输入值超出范围')
+        //   }
+
+
+        var minxingSeal = new wafaSeal.roundSeal('canvas', {
+            // type: 1,
+            color: 'red',
+            // 印章半径
+            radius: radius.value,
+            // 边框线的宽度
+            lineWidth: lineWidth.value,
+            //是否有内边线
+            hasInnerLine: hasInnerLine[0].checked,
+
+            // 内边框线的宽度
+            innerLineWidth: innerLineWidth.value,
+            //内边线到外边线的距离
+            innerLineDistance: innerLineDistance.value,
+            // 机构名称
+            groupName: groupName.value,
+            // 机构名称字体大小
+            groupNameFontSize: groupNameFontSize.value,
+            // 机构名称字体
+            fontFamily: 'SimSun',
+            //机构名称文字环绕度数
+            characterDegree: characterDegree.value,
+            //机构名称文字间距
+            companyFontWidth: companyFontWidth.value,
+            // 机构名称、防伪码字与边框的距离
+            lineTextGap: lineTextGap.value,
+            //防伪码
+            securityCode: securityCode.value,
+            //防伪码字体大小
+            securityCodeFontSize: securityCodeFontSize.value,
+            //防伪码字宽
+            // securityCodeWidth: securityCodeWidth,
+            //印章名称
+            drawSealName: drawSealName.value,
+            //印章名称字体大小
+            drawSealFontSize: drawSealFontSize.value,
+            //印章名称位置
+            drawSealLocation: drawSealLocation.value,
+            //印章名称文字间距
+            drawSealMaxWidth: drawSealMaxWidth.value,
+            //五角星
+            starX: starX.value,
+            //五角星Y轴的偏移
+            fiveStarX: fiveStarX.value
+        })
+    }
+    makeEseal()
+    function downLoadImage() {
+        var securityCode = document.getElementById('securityCode').value
+        // console.log(securityCode)
+        var groupName = document.getElementById('groupName').value
+        if (securityCode.length > 0 && securityCode.length !== 13) {
+            alert('防伪码只能为13位！')
+            return
+        }
+        if (groupName.length > 19 || groupName.length <= 0) {
+            alert('请输入1~19个字符！')
+            return
+        }
+        var canvas = document.getElementById('canvas')
+        // var a = document.createElement("a");
+        var href = canvas.toDataURL()
+        // a.download = 'ship.png';
+        // a.click();
+        download(
+            href,
+            groupName + new Date().getMilliseconds() + '.png',
+            'application/x-png'
+        )
+    }
+</script>
+
+</html>
