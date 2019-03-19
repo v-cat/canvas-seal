@@ -21,8 +21,6 @@
 }
 
 .seconds {
-  /* margin-top: -30px; */
-  /* height: 130px; */
   height: 150px;
 }
 
@@ -32,25 +30,6 @@
 
 .fourth {
   height: 70px;
-}
-
-ul {
-  padding: 0px;
-  margin: 0px;
-  width: 480px;
-  /* height: 145px; */
-}
-
-li {
-  display: inline-block;
-  float: left;
-  list-style: none;
-  margin: 0;
-  padding: 3px;
-}
-
-ul strong {
-  display: inline-block;
 }
 
 .seal-name {
@@ -97,62 +76,49 @@ ul strong {
   margin-top: -150px;
 }
 
-.seal-btn {
-  padding: 3px 15px;
-  color: #16a8a4;
-  border: 1px solid #16a8a4;
-}
+/* .seal-btn {
+    padding: 3px 15px;
+    color: #16a8a4;
+    border: 1px solid #16a8a4; */
 
-.inputBtn:hover,
-.seal-btn:hover {
-  color: white;
-  background: #16a8a4;
-}
+/* } */
 
-.eseal-all {
-  width: 1250px;
-  /* height: 400px; */
-  margin: 0px auto;
-  padding-bottom: 20px;
-}
+/* .inputBtn:hover {
+    color: white;
+    background: #16a8a4;
+} */
 
 .eseal-input {
   position: relative;
 }
 
 .eseal-name {
-  font-size: 30px;
+  font-size: 20px;
   color: #16a8a4;
   text-align: center;
-  /* padding: 0px 0px 50px; */
 }
 
 #seal {
   width: 670px;
-  /* margin-top: -300px; */
-  top: 60px;
+  top: 100px;
   margin-left: 540px;
   position: absolute;
 }
 
-.image {
-  margin-top: 10px;
-  /* position: absolute; */
+/* .image {
+    margin-top: 10px;
 }
 
 .image img {
-  border: 1px solid #b9e1e0;
-  padding: 10px;
+    border: 1px solid #b9e1e0;
+    padding: 10px;
 }
 
-#canvas {
-  display: none;
-}
+*/
 
 .seal-bt {
   float: left;
   margin-left: 233px;
-  /* bottom: 0px; */
   margin-top: -35px;
   text-align: center;
 }
@@ -160,7 +126,6 @@ ul strong {
 .text {
   font-size: 12px;
   font-weight: 400;
-  /* position: absolute; */
   top: 0px;
   text-align: left;
 }
@@ -168,7 +133,6 @@ ul strong {
 .text span {
   font-size: 13px;
   color: #16a8a4;
-  /* font-weight: 600; */
 }
 
 .text strong {
@@ -206,6 +170,8 @@ ul strong {
 }
 
 #tagContent div {
+  /* overflow-y: scroll; */
+  /* overflow-x: hidden; */
   width: 680px;
   border: 1px solid #16a8a4;
   border-top: none;
@@ -217,55 +183,8 @@ ul strong {
   padding: 0px 10px;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none !important;
-}
+/* 公司章 */
 
-.subtraction {
-  /* width: 10px;
-  height: 5px;
-  padding: 0px;
-  margin: 0px 0px;
-  font-size: 12px;
-  text-decoration: none; */
-}
-
-input[type='button'] {
-  width: 20px;
-  height: 15px;
-  /* background-color: #4caf50; */
-  /* border: {none; */
-  border: 1px solid #16a8a4;
-  background: #ccc;
-  /* color: white; */
-  padding: 0px 0px;
-  text-decoration: none;
-  /* margin: 0px 0px; */
-  cursor: pointer;
-}
-
-.inputBtn {
-  /* border: 1px solid #16a8a4;
-  line-height: 13px;
-  display: inline-block;
-  padding: 0px 8px;
-  text-decoration: none;
-  cursor: pointer; */
-}
-
-.inputBtn {
-  position: absolute;
-}
-
-.inputBtn-top {
-  display: inline-block;
-  margin-top: 14px;
-}
-
-.btnSpan {
-  float: right;
-  width: 20px;
-  height: 30px;
-  margin-left: 5px;
+input {
+  outline: none;
 }

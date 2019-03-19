@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+</head>
+<!-- <link rel="stylesheet" type="text/css" href="./newEseal.css" /> -->
+<link rel="stylesheet" type="text/css" href="./eseal.css" />
+<style></style>
+<body>
+  <div class="esealSelect">
+    <a class="checke hasSlect" href="./newEseal.html">公司印章制作(单位:毫米)</a>
+    <a class="checke hasSlect slected">个人印章制作</a>
+  </div>
+  <div class="eseal-all">
+    <div class="eseal-input">
+      <ul class="first">
+        <p>画布设置<span>(单位:毫米)</span></p>
+        <li class="seal">
+          <span class="seal-name"> 印章宽: </span>
+          <input class="seal-inputNum  seal-input" id="sealSize" width="150" type="number" value="20" min="0" max="300"
+            readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+          <div class="btnSpan">
+            <input class="add inputBtn " value="∧" type="button" onclick="add('sealSize')"> </input>
+            <input class="subtraction inputBtn inputBtn-top" type="button" value="∨"
+              onclick="subtraction('sealSize')"></input>
+          </div>
+        </li>
+        <li class="seal">
+          <span class="seal-name"> 印章高: </span>
+          <input class="seal-inputNum  seal-input" id="sealHeight" width="150" type="number" value="20" min="0" max="300" readonly
+            unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+          <div class="btnSpan">
+            <input class="add inputBtn " value="∧" type="button" onclick="add('sealHeight')"> </input>
+            <input class="subtraction inputBtn inputBtn-top" type="button" value="∨" onclick="subtraction('sealHeight')"></input>
+          </div>
+        </li>
+        <li class="seal">
+          <span class="seal-name"> 中心的上下移动: </span>
+          <input class="seal-inputNum  seal-input" id="translatey" width="150" type="number" value="12" min="0" max="300"
+            readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+          <div class="btnSpan">
+            <input class="add inputBtn " value="∧" type="button" onclick="add('translatey')"> </input>
+            <input class="subtraction inputBtn inputBtn-top" type="button" value="∨"
+              onclick="subtraction('translatey')"></input>
+          </div>
+        </li>
+        <li class="seal">
+          <span class="seal-name"> 中心的左右移动: </span>
+          <input class="seal-inputNum  seal-input" id="translatex" width="150" type="number" value="12" min="0" max="300"
+            readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+          <div class="btnSpan">
+            <input class="add inputBtn " value="∧" type="button" onclick="add('translatex')"> </input>
+            <input class="subtraction inputBtn inputBtn-top" type="button" value="∨"
+              onclick="subtraction('translatex')"></input>
+          </div>
+        </li>
+        <li class="seal">
+          <span class="seal-name"> 印章名称: </span>
+          <input class="seal-inputName seal-input" id="personName" width="100" type="text" value="张张"
+            oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+        </li>
+        <li class="seal">
+          <span class="seal-name"> 边框线宽度: </span>
+          <input class="seal-inputNum  seal-input" id="personLineWidth" width="150" type="number" value="2" min="0" max="200"
+            readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+          <div class="btnSpan">
+            <input class="add inputBtn  lineDis" value="∧" type="button" onclick="add('personLineWidth')">
+            </input>
+            <input class="subtraction inputBtn inputBtn-top lineDis" type="button" value="∨"
+              onclick="subtraction('personLineWidth')"></input>
+          </div>
+        </li>
+        <li class="seal">
+          <span class="seal-name"> 字体大小: </span>
+          <input class="seal-inputNum  seal-input  " id="personNameFontSize" width="150" type="number" min="0" value="7"
+            max="500" readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+          <div class="btnSpan">
+            <input   class="add inputBtn lineDis" value="∧" type="button" onclick="add('personNameFontSize')">
+            </input>
+            <input class="subtraction inputBtn inputBtn-top lineDis" type="button" value="∨"
+              onclick="subtraction('personNameFontSize')"></input>
+          </div>
+        </li>
+        <li class="seal">
+          <span class="seal-name"> 字与边框的距离: </span>
+          <input class="seal-inputNum  seal-input" id="lineTextGap" width="150" type="number" value="2" min="0"
+            max="500" readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+          <div class="btnSpan">
+            <input class="add inputBtn " value="∧" type="button" onclick="add('lineTextGap')"> </input>
+            <input class="subtraction inputBtn inputBtn-top" type="button" value="∨"
+              onclick="subtraction('lineTextGap')"></input>
+          </div>
+        </li>
+        <li class="seal">
+          <span class="seal-name"> 字体选择 ： </span>
+          <input class="checke fontFamily" name="font" type="radio" value="仿宋" oninput=" makeEseal()"
+            onporpertychange=" makeEseal()" /><span>仿宋</span>
+          <input class="checke fontFamily" name="font" type="radio" value="黑体" oninput=" makeEseal()"
+            onporpertychange=" makeEseal()" /><span>黑体</span>
+          <input class="checke fontFamily" name="font" type="radio" value="隶书" checked="checked" oninput=" makeEseal()"
+            onporpertychange=" makeEseal()" /><span>隶书</span>
+        </li>
+        <li class="seal">
+          <span class="seal-name"> 颜色选择 ： </span>
+          <input class="checke fontColor" name="color" type="radio" value="红色" oninput=" makeEseal()"
+            onporpertychange=" makeEseal()" /><span class="colorSpan red">红色</span>
+          <input class="checke fontColor" name="color" type="radio" oninput=" makeEseal()"
+            onporpertychange=" makeEseal()" /><span class="colorSpan blue">蓝色</span>
+          <input class="checke fontColor" name="color" type="radio" checked="checked" oninput=" makeEseal()"
+            onporpertychange=" makeEseal()" /><span class="colorSpan black">黑色</span>
+        </li>
+        <li class="seal">
+          <span class="seal-name"> 样式选择 ： </span>
+          <input class="checke sealStyle" name="sealStyle" type="radio" oninput=" makeEseal()"
+            onporpertychange="makeEseal()" /><span>正方形章</span>
+          <input class="checke sealStyle" name="sealStyle" type="radio" checked="checked" oninput=" makeEseal()"
+            onporpertychange="makeEseal()" /><span>长方形章</span>
+        </li>
+      </ul>
+
+    </div>
+    <div>
+      <div id="seal">
+        <canvas id="canvas" width="200" height="200"></canvas>
+      </div>
+      <div class="sealImgs">
+        <div class="image ">
+          <img id="sealImg" />
+        </div>
+        <div class="seal-bt">
+          <span class="seal-btn" type="button" onclick="javascript: downLoadImage();">保存印章
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="./personalSeal.js"></script>
+<script src="./download.js"></script>
+<script src="./add.js"></script>
+
+<script>
+
+  function makeEseal() {
+     var fontColor = document.getElementsByClassName('fontColor')
+     var lineColor=''
+     console.log(fontColor[0].checked)
+     if(fontColor[0].checked){
+       lineColor='red'
+       console.log(lineColor)
+     }else if(fontColor[1].checked){
+         lineColor = 'blue'
+       console.log(lineColor)
+     }else{
+         lineColor = 'black'
+       console.log(lineColor)
+     }
+    var sealSize = document.getElementById('sealSize')
+    var sealHeight=document.getElementById('sealHeight')
+    var translatey=document.getElementById('translatey')
+    var translatex=document.getElementById('translatex')
+    var personName = document.getElementById('personName')
+    var personLineWidth = document.getElementById('personLineWidth')
+    var personNameFontSize = document.getElementById('personNameFontSize')
+    var lineTextGap = document.getElementById('lineTextGap')
+    var fontFamily = document.getElementsByClassName('fontFamily')
+    // console.log( sealSize.value)
+   
+    var sealStyle = document.getElementsByClassName('sealStyle')
+    // var type=''
+    //   console.log(sealStyle)
+
+    // if(sealStyle){
+    //   type='1'
+    //   console.log(type)
+    // }else{
+    //   console.log(type)
+    //   type = '2'
+    // }
+    var minxingSeal = new wafaSeal.PersonSeal('canvas', {
+      //大小
+      sealSize: sealSize.value,
+      sealHeight: sealHeight.value,
+      translatey: translatey.value,
+      translatex: translatex.value,
+      // 类型
+      type: sealStyle[0].checked,
+      //名称
+      personName: personName.value,
+      //字体
+      fontFamily: fontFamily ,
+      //颜色
+      color: lineColor,
+      //边框线宽度
+      personLineWidth: personLineWidth.value,
+      // 字体大小
+      personNameFontSize: personNameFontSize.value,
+      // 字与边框的距离
+      lineTextGap: lineTextGap.value,
+    })
+
+  }
+  makeEseal()
+   
+  // let minxingSeals = new wafaSeal.PersonSeal('canvas', {
+  //   color: 'red',
+  //   personName: '三sw',
+  //   type: 2
+  // })
+
+  function downLoadImage() {
+
+    var groupName = document.getElementById('personName').value
+
+    // if (groupName.length > 19 || groupName.length <= 0) {
+    //   alert('请输入1~19个字符！')
+    //   return
+    // }
+    var canvas = document.getElementById('canvas')
+    // var a = document.createElement("a");
+    var href = canvas.toDataURL()
+    // a.download = 'ship.png';
+    // a.click();
+    download(
+      href,
+      groupName + new Date().getMilliseconds() + '.png',
+      'application/x-png'
+    )
+  }
+</script>
+
+</html>
+
+<!-- <div class="slectPersonal" id="slectPersonal">
+    
+    </div> -->

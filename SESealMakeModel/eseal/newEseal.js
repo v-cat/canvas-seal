@@ -251,6 +251,7 @@
     this.ctx.save()
     this.ctx.fillStyle = this.color
     this.ctx.font = 'normal normal normal ' + fontSize + 'px ' + this.fontFamily
+
     this.ctx.textBaseline = 'middle' //法在画布上定位文本时
     this.ctx.textAlign = 'center'
     this.ctx.translate(this.radius, this.radius)
@@ -377,10 +378,10 @@
     // console.log(c_value, 'px');
     return c_value
   }
+
   var wafaSeal = {
     roundSeal: roundSeal
     // Seal,
-    // PersonSeal
   }
   window.wafaSeal = wafaSeal
 })()
