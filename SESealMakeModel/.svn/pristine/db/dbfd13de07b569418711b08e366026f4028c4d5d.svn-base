@@ -8,7 +8,7 @@
 }
 
 .first {
-    height: 190px;
+    height: 170px;
 }
 
 .fourth p,
@@ -25,7 +25,7 @@
 }
 
 .third {
-    height: 110px;
+    height: 100px;
 }
 
 .fourth {
@@ -61,7 +61,7 @@
 }
 
 .seal-inputName {
-    width: 310px;
+    width: 250px;
 }
 
 .seal-all {
@@ -217,10 +217,8 @@ ul strong {
     border: 1px solid #16a8a4;
     /* font-size: 30px; */
 }
- 
 
-.slected,
-.hasSlect:hover {
+.slected {
     background: #16a8a4;
     color: #fff;
 }
@@ -246,7 +244,7 @@ ul strong {
     color: #16a8a4;
     border: 1px solid #16a8a4;
 }
-.inputHover:hover,
+
 .inputBtn:hover,
 .seal-btn:hover {
     color: white;
@@ -269,7 +267,7 @@ input[type='button'] {
     text-decoration: none;
     cursor: pointer;
 }
-.lineDis,
+
 .inputBtn {
     position: absolute;
 }

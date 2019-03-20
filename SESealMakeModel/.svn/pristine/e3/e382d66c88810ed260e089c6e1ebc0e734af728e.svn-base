@@ -1,0 +1,190 @@
+.eseal-input:after {
+  display: block;
+  content: 'clear';
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.first {
+  height: 170px;
+}
+
+.fourth p,
+.third p,
+.seconds p,
+.first p {
+  padding: 0px;
+  margin: 0px;
+  font-weight: bold;
+}
+
+.seconds {
+  height: 150px;
+}
+
+.third {
+  height: 100px;
+}
+
+.fourth {
+  height: 70px;
+}
+
+.seal-name {
+  display: inline-block;
+  padding: 0px 10px;
+  color: black;
+  font-size: 13px;
+  width: 123px;
+}
+
+.seal-input {
+  margin: 2px;
+  font-size: 13px;
+  height: 25px;
+  line-height: 25px;
+  outline: none;
+  border: 0.1px solid #b9e1e0;
+  padding: 0px 5px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.checke {
+  margin: 10px;
+}
+
+.seal-inputNum {
+  width: 50px;
+}
+
+.seal-inputName {
+  width: 250px;
+}
+
+.seal-all {
+  width: 1200px;
+  position: absolute;
+}
+
+.eseal {
+  width: 250px;
+  margin-left: 200px;
+  float: left;
+  margin-top: -150px;
+}
+
+/* .seal-btn {
+    padding: 3px 15px;
+    color: #16a8a4;
+    border: 1px solid #16a8a4; */
+
+/* } */
+
+/* .inputBtn:hover {
+    color: white;
+    background: #16a8a4;
+} */
+
+.eseal-input {
+  position: relative;
+}
+
+.eseal-name {
+  font-size: 20px;
+  color: #16a8a4;
+  text-align: center;
+}
+
+#seal {
+  width: 670px;
+  top: 100px;
+  margin-left: 540px;
+  position: absolute;
+}
+
+/* .image {
+    margin-top: 10px;
+}
+
+.image img {
+    border: 1px solid #b9e1e0;
+    padding: 10px;
+}
+
+*/
+
+.seal-bt {
+  float: left;
+  margin-left: 233px;
+  margin-top: -35px;
+  text-align: center;
+}
+
+.text {
+  font-size: 12px;
+  font-weight: 400;
+  top: 0px;
+  text-align: left;
+}
+
+.text span {
+  font-size: 13px;
+  color: #16a8a4;
+}
+
+.text strong {
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* 切换标签 */
+
+#wrap {
+  width: 700px;
+  margin: 10px auto;
+}
+
+#tag {
+  width: 700px;
+  overflow: hidden;
+  background: #16a8a4;
+  border: 1px solid #b9e1e0;
+}
+
+#tag li {
+  list-style: none;
+  float: left;
+  margin-right: 0px;
+  color: white;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+
+#tag .current {
+  color: #000;
+  background: #ccc;
+}
+
+#tagContent div {
+  /* overflow-y: scroll; */
+  /* overflow-x: hidden; */
+  width: 680px;
+  border: 1px solid #16a8a4;
+  border-top: none;
+  height: 380px;
+  display: none;
+}
+
+.J_tabClass {
+  padding: 0px 10px;
+}
+
+/* 公司章 */
+
+input {
+  outline: none;
+}

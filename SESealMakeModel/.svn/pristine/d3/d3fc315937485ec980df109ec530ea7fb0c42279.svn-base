@@ -63,9 +63,12 @@
     this.type =
       option.type
     // 名称
-    this.personName = option.personName 
+    this.personName =
+      option.personName ||
+      '张三'
     // 字体
-    this.fontFamily =option.fontFamily
+    this.fontFamily =
+      option.fontFamily
     // 颜色
     this.color = option.color
     // 边框线宽度
@@ -156,18 +159,12 @@
   PersonSeal.prototype._drawPersonNameTypeOne = function _drawPersonNameTypeOne() {
     var length = this.personName.length
     if (length < 2 || length > 4) {
-      // throw new RangeError('名称只能为2~4个字符！')
+      throw new RangeError('名称只能为2~4个字符！')
     }
     if (typeof this.personName !== 'string') {
       throw new TypeError('只能是字符串！')
     }
     switch (length) {
-       case 0:
-         this.personName += '之印'
-       break
-       case 1:
-         this.personName += '之印'
-       break
       case 2:
         this.personName += '之印'
         break

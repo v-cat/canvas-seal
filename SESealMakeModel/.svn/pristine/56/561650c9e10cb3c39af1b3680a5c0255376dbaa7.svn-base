@@ -10,39 +10,29 @@
 <!-- <link rel="stylesheet" type="text/css" href="./newEseal.css" /> -->
 <link rel="stylesheet" type="text/css" href="./eseal.css" />
 <style></style>
-
 <body>
   <div class="esealSelect">
     <a class="checke hasSlect" href="./newEseal.html">公司印章制作(单位:毫米)</a>
     <a class="checke hasSlect slected">个人印章制作</a>
-    <span class=" hasSlect" type="button" onclick="javascript: downLoadImage();">保存印章
-    </span>
-  </div>
-  <div class="seal-bt">
-
   </div>
   <div class="eseal-all">
     <div class="eseal-input">
       <ul class="first">
         <p>画布设置<span>(单位:毫米)</span></p>
         <li class="seal">
-          <span class="seal-name"> 印章名称: </span>
-          <input class="seal-inputName seal-input" id="personName" width="100" type="text" maxlength="4" value="张张"
-oninput="makeEseal()" onporpertychange="makeEseal()" onkeyup="this.value=this.value.replace(/\s+/g,'')"/>
-        </li>
-        <li class="seal">
           <span class="seal-name"> 印章宽: </span>
           <input class="seal-inputNum  seal-input" id="sealSize" width="150" type="number" value="20" min="0" max="300"
             readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
           <div class="btnSpan">
             <input class="add inputBtn " value="∧" type="button" onclick="add('sealSize')"> </input>
-            <input class="subtraction inputBtn inputBtn-top" type="button" value="∨" onclick="subtraction('sealSize')"></input>
+            <input class="subtraction inputBtn inputBtn-top" type="button" value="∨"
+              onclick="subtraction('sealSize')"></input>
           </div>
         </li>
         <li class="seal">
           <span class="seal-name"> 印章高: </span>
-          <input class="seal-inputNum  seal-input" id="sealHeight" width="150" type="number" value="20" min="0" max="300"
-            readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+          <input class="seal-inputNum  seal-input" id="sealHeight" width="150" type="number" value="20" min="0" max="300" readonly
+            unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
           <div class="btnSpan">
             <input class="add inputBtn " value="∧" type="button" onclick="add('sealHeight')"> </input>
             <input class="subtraction inputBtn inputBtn-top" type="button" value="∨" onclick="subtraction('sealHeight')"></input>
@@ -54,7 +44,8 @@ oninput="makeEseal()" onporpertychange="makeEseal()" onkeyup="this.value=this.va
             readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
           <div class="btnSpan">
             <input class="add inputBtn " value="∧" type="button" onclick="add('translatey')"> </input>
-            <input class="subtraction inputBtn inputBtn-top" type="button" value="∨" onclick="subtraction('translatey')"></input>
+            <input class="subtraction inputBtn inputBtn-top" type="button" value="∨"
+              onclick="subtraction('translatey')"></input>
           </div>
         </li>
         <li class="seal">
@@ -63,8 +54,14 @@ oninput="makeEseal()" onporpertychange="makeEseal()" onkeyup="this.value=this.va
             readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
           <div class="btnSpan">
             <input class="add inputBtn " value="∧" type="button" onclick="add('translatex')"> </input>
-            <input class="subtraction inputBtn inputBtn-top" type="button" value="∨" onclick="subtraction('translatex')"></input>
+            <input class="subtraction inputBtn inputBtn-top" type="button" value="∨"
+              onclick="subtraction('translatex')"></input>
           </div>
+        </li>
+        <li class="seal">
+          <span class="seal-name"> 印章名称: </span>
+          <input class="seal-inputName seal-input" id="personName" width="100" type="text" value="张张"
+            oninput=" makeEseal()" onporpertychange=" makeEseal()" />
         </li>
         <li class="seal">
           <span class="seal-name"> 边框线宽度: </span>
@@ -73,7 +70,8 @@ oninput="makeEseal()" onporpertychange="makeEseal()" onkeyup="this.value=this.va
           <div class="btnSpan">
             <input class="add inputBtn  lineDis" value="∧" type="button" onclick="add('personLineWidth')">
             </input>
-            <input class="subtraction inputBtn inputBtn-top lineDis" type="button" value="∨" onclick="subtraction('personLineWidth')"></input>
+            <input class="subtraction inputBtn inputBtn-top lineDis" type="button" value="∨"
+              onclick="subtraction('personLineWidth')"></input>
           </div>
         </li>
         <li class="seal">
@@ -81,45 +79,49 @@ oninput="makeEseal()" onporpertychange="makeEseal()" onkeyup="this.value=this.va
           <input class="seal-inputNum  seal-input  " id="personNameFontSize" width="150" type="number" min="0" value="7"
             max="500" readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
           <div class="btnSpan">
-            <input class="add inputBtn lineDis" value="∧" type="button" onclick="add('personNameFontSize')">
+            <input   class="add inputBtn lineDis" value="∧" type="button" onclick="add('personNameFontSize')">
             </input>
-            <input class="subtraction inputBtn inputBtn-top lineDis" type="button" value="∨" onclick="subtraction('personNameFontSize')"></input>
+            <input class="subtraction inputBtn inputBtn-top lineDis" type="button" value="∨"
+              onclick="subtraction('personNameFontSize')"></input>
           </div>
         </li>
         <li class="seal">
           <span class="seal-name"> 字与边框的距离: </span>
-          <input class="seal-inputNum  seal-input" id="lineTextGap" width="150" type="number" value="2" min="0" max="500"
-            readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+          <input class="seal-inputNum  seal-input" id="lineTextGap" width="150" type="number" value="2" min="0"
+            max="500" readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
           <div class="btnSpan">
             <input class="add inputBtn " value="∧" type="button" onclick="add('lineTextGap')"> </input>
-            <input class="subtraction inputBtn inputBtn-top" type="button" value="∨" onclick="subtraction('lineTextGap')"></input>
+            <input class="subtraction inputBtn inputBtn-top" type="button" value="∨"
+              onclick="subtraction('lineTextGap')"></input>
           </div>
         </li>
         <li class="seal">
           <span class="seal-name"> 字体选择 ： </span>
-          <input class="checke fontFamily" name="font" type="radio" value="仿宋" onchange=" makeEseal()" onporpertychange=" makeEseal()" /><span
-            class="fangsong">仿宋</span>
-          <input class="checke fontFamily" name="font" type="radio" value="黑体" onchange=" makeEseal()" onporpertychange=" makeEseal()" /><span
-            class="heiti">黑体</span>
-          <input class="checke fontFamily" name="font" type="radio" value="隶书" checked="checked" onchange=" makeEseal()"
+          <input class="checke fontFamily" name="font" type="radio" value="仿宋" oninput=" makeEseal()"
+            onporpertychange=" makeEseal()" /><span class="fangsong">仿宋</span>
+          <input class="checke fontFamily" name="font" type="radio" value="黑体" oninput=" makeEseal()"
+            onporpertychange=" makeEseal()" /><span class="heiti">黑体</span>
+          <input class="checke fontFamily" name="font" type="radio" value="隶书" checked="checked" oninput=" makeEseal()"
             onporpertychange=" makeEseal()" /><span class="yahei">微软雅黑</span>
         </li>
         <li class="seal">
           <span class="seal-name"> 颜色选择 ： </span>
-          <input class="checke fontColor" name="color" type="radio" value="红色" checked="checked" onchange=" makeEseal()"
+          <input class="checke fontColor" name="color" type="radio" value="红色" oninput=" makeEseal()"
             onporpertychange=" makeEseal()" /><span class="colorSpan red">红色</span>
-          <input class="checke fontColor" name="color" type="radio" onchange=" makeEseal()" onporpertychange=" makeEseal()" /><span
-            class="colorSpan blue">蓝色</span>
-          <input class="checke fontColor" name="color" type="radio" onchange=" makeEseal()" onporpertychange=" makeEseal()" /><span
-            class="colorSpan black">黑色</span>
+          <input class="checke fontColor" name="color" type="radio" oninput=" makeEseal()"
+            onporpertychange=" makeEseal()" /><span class="colorSpan blue">蓝色</span>
+          <input class="checke fontColor" name="color" type="radio" checked="checked" oninput=" makeEseal()"
+            onporpertychange=" makeEseal()" /><span class="colorSpan black">黑色</span>
         </li>
         <li class="seal">
           <span class="seal-name"> 样式选择 ： </span>
-          <input class="checke sealStyle" name="sealStyle" type="radio" onchange=" makeEseal()" onporpertychange="makeEseal()" /><span>长方形章</span>
-          <input class="checke sealStyle" name="sealStyle" type="radio" checked="checked" onchange=" makeEseal()"
+          <input class="checke sealStyle" name="sealStyle" type="radio" oninput=" makeEseal()"
+            onporpertychange="makeEseal()" /><span>长方形章</span>
+          <input class="checke sealStyle" name="sealStyle" type="radio" checked="checked" oninput=" makeEseal()"
             onporpertychange="makeEseal()" /><span>正方形章</span>
         </li>
       </ul>
+
     </div>
     <div>
       <div id="seal">
@@ -129,7 +131,10 @@ oninput="makeEseal()" onporpertychange="makeEseal()" onkeyup="this.value=this.va
         <div class="image ">
           <img id="sealImg" />
         </div>
-
+        <div class="seal-bt">
+          <span class="seal-btn" type="button" onclick="javascript: downLoadImage();">保存印章
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -139,55 +144,66 @@ oninput="makeEseal()" onporpertychange="makeEseal()" onkeyup="this.value=this.va
 <script src="./add.js"></script>
 
 <script>
- 
-makeEseal()
-  function calculate() {
-
-
-  }
-
 
   function makeEseal() {
-    var fontColor = document.getElementsByClassName('fontColor')
-    var lineColor = ''
-    // console.log(fontColor[0].checked)
-    if (fontColor[0].checked) {
-      lineColor = 'red'
-    } else if (fontColor[1].checked) {
-      lineColor = 'blue'
-    } else {
-      lineColor = 'black'
-    }
+     var fontColor = document.getElementsByClassName('fontColor')
+     var lineColor=''
+     console.log(fontColor[0].checked)
+     if(fontColor[0].checked){
+       lineColor='red'
+      //  console.log(lineColor)
+     }else if(fontColor[1].checked){
+         lineColor = 'blue'
+      //  console.log(lineColor)
+     }else{
+         lineColor = 'black'
+      //  console.log(lineColor)
+     }
     var fontFamily = document.getElementsByClassName('fontFamily')
-    var fontStyle = ''
+var fontStyle=''
     if (fontFamily[0].checked) {
       fontStyle = 'SimSun'
+      console.log(fontStyle)
     } else if (fontFamily[1].checked) {
       fontStyle = 'SimHei'
+      console.log(fontStyle)
     } else {
       fontStyle = 'Microsoft YaHei'
+      console.log(fontStyle)
     }
     var sealSize = document.getElementById('sealSize')
-var sealHeight = document.getElementById('sealHeight').value
-    var translatey = document.getElementById('translatey')
-    var translatex = document.getElementById('translatex')
-var personName = document.getElementById('personName').value.trim()
+    var sealHeight=document.getElementById('sealHeight')
+    var translatey=document.getElementById('translatey')
+    var translatex=document.getElementById('translatex')
+    var personName = document.getElementById('personName')
     var personLineWidth = document.getElementById('personLineWidth')
     var personNameFontSize = document.getElementById('personNameFontSize')
     var lineTextGap = document.getElementById('lineTextGap')
+    // console.log( sealSize.value)
+   
     var sealStyle = document.getElementsByClassName('sealStyle')
+    // var type=''
+    //   console.log(sealStyle)
+
+    // if(sealStyle){
+    //   type='1'
+    //   console.log(type)
+    // }else{
+    //   console.log(type)
+    //   type = '2'
+    // }
     var minxingSeal = new wafaSeal.PersonSeal('canvas', {
       //大小
       sealSize: sealSize.value,
-      sealHeight: sealHeight,
+      sealHeight: sealHeight.value,
       translatey: translatey.value,
       translatex: translatex.value,
       // 类型
       type: sealStyle[0].checked,
       //名称
-      personName: personName ,
+      personName: personName.value,
       //字体
-      fontFamily: fontStyle,
+      fontFamily: fontStyle ,
       //颜色
       color: lineColor,
       //边框线宽度
@@ -197,20 +213,29 @@ var personName = document.getElementById('personName').value.trim()
       // 字与边框的距离
       lineTextGap: lineTextGap.value,
     })
-calculate()
-  }
-  function downLoadImage() {
-var personName = document.getElementById('personName').value.length
 
-// alert(personName)
-if (personName < 1 ||personName>4) {
-  // alert('1')
-  alert('名称只能为1~4个字符')
-  return;
   }
+  makeEseal()
+   
+  // let minxingSeals = new wafaSeal.PersonSeal('canvas', {
+  //   color: 'red',
+  //   personName: '三sw',
+  //   type: 2
+  // })
+
+  function downLoadImage() {
+
     var groupName = document.getElementById('personName').value
+
+    // if (groupName.length > 19 || groupName.length <= 0) {
+    //   alert('请输入1~19个字符！')
+    //   return
+    // }
     var canvas = document.getElementById('canvas')
+    // var a = document.createElement("a");
     var href = canvas.toDataURL()
+    // a.download = 'ship.png';
+    // a.click();
     download(
       href,
       groupName + new Date().getMilliseconds() + '.png',
@@ -220,3 +245,7 @@ if (personName < 1 ||personName>4) {
 </script>
 
 </html>
+
+<!-- <div class="slectPersonal" id="slectPersonal">
+    
+    </div> -->
