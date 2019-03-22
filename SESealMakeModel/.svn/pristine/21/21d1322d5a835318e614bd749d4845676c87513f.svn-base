@@ -120,8 +120,8 @@
                     </li>
                     <li class="seal">
                         <span class="seal-name"> 文字环绕度数:</span>
-                        <input class="seal-inputNum  seal-input" id="characterDegree" width="150" type="text" value="210"
-                            min="0" max="360"  unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                        <input class="seal-inputNum  seal-input" id="characterDegree" width="150" type="number" value="210"
+                            min="0" max="360" readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                         <div class="btnSpan">
                             <input class="add inputBtn " value="∧" type="button" onclick="add('characterDegree')">
                             </input>
@@ -328,6 +328,7 @@
     //   //   }
     // }
     makeEseal()
+
     function makeEseal() {
         var radius = document.getElementById('canvasSize')
         var lineWidth = document.getElementById('lineWidth')
