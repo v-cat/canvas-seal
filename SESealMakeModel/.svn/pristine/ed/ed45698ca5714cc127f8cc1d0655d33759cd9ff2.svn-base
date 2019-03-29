@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,7 +32,7 @@
                     <li class="seal">
                         <span class="seal-name"> 印章大小（半径）: </span>
                         <input class="seal-inputNum  seal-input" id="canvasSize" width="150" type="number" value="21"
-                            min="0" max="30"  unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                            min="0" max="30" readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                         <div class="btnSpan">
                             <input class="add inputBtn " value="∧" type="button" onclick="add('canvasSize')"> </input>
                             <input class="subtraction inputBtn inputBtn-top" type="button" value="∨" onclick="subtraction('canvasSize')"></input>
@@ -40,7 +41,7 @@
                     <li class="seal">
                         <span class="seal-name"> 圆边宽: </span>
                         <input class="seal-inputNum  seal-input" id="lineWidth" width="150" type="number" value="1.2"
-                            min="0" max="3"  oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                            min="0" max="3" readonly oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                         <div class="btnSpan">
                             <input class="add inputBtn   " value="∧" type="button" onclick="add('lineWidth')">
                             </input>
@@ -48,9 +49,9 @@
                         </div>
                     </li>
                     <li class="seal">
-                        <span class="seal-name"> 字与边线内侧距离: </span>
+                        <span class="seal-name"> 文字到边线距离: </span>
                         <input class="seal-inputNum  seal-input" id="lineTextGap" width="150" type="number" value="0.8"
-                            min="0" max="5"  unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                            min="0" max="5" readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                         <div class="btnSpan">
                             <input class="add inputBtn " value="∧" type="button" onclick="add('lineTextGap')"> </input>
                             <input class="subtraction inputBtn inputBtn-top" type="button" value="∨" onclick="subtraction('lineTextGap')"></input>
@@ -66,7 +67,7 @@
                     <li class="seal">
                         <span class="seal-name linColor"> 内圆边宽: </span>
                         <input class="seal-inputNum  seal-input " id="innerLineWidth" width="150" type="number" value="0.5"
-                            min="0" max="2"  unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                            min="0" max="2" readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                         <div class="btnSpan">
                             <input class="add    lineDis inputHover" value="∧" type="button" id="clickUpOne" onclick="judge('innerLineWidth')">
                             </input>
@@ -78,7 +79,7 @@
                         <span class="seal-name linColor"> 内外边线距离: </span>
 
                         <input class="seal-inputNum  seal-input  " id="innerLineDistance" width="150" type="number"
-                            value="0.8" min="0" max="5"  unselectable="on" oninput=" makeEseal()"
+                            value="0.8" min="0" max="5" readonly unselectable="on" oninput=" makeEseal()"
                             onporpertychange=" makeEseal()" />
                         <div class="btnSpan">
                             <input class="add  lineDis inputHover" id="clickUpTow" value="∧" type="button" onclick="judge('innerLineDistance')">
@@ -98,9 +99,9 @@
                             maxlength="19" oninput=" makeEseal()" onporpertychange=" makeEseal()" onkeyup="this.value=this.value.replace(/\s+/g,'')" />
                     </li>
                     <li class="seal">
-                        <span class="seal-name sealWords"  >五角星上方环排中文文字高: </span>
-                        <input   class="seal-inputNum  seal-input inputWords" id="groupNameFontSize" width="150" type="number" value="7"
-                            min="0" max="17"  unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                        <span class="seal-name">文字大小: </span>
+                        <input class="seal-inputNum  seal-input" id="groupNameFontSize" width="150" type="number" value="7"
+                            min="0" max="17" readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                         <div class="btnSpan">
                             <input class="add inputBtn " value="∧" type="button" onclick="add('groupNameFontSize')">
                             </input>
@@ -110,7 +111,7 @@
                     <li class="seal">
                         <span class="seal-name"> 文字宽度比:</span>
                         <input class="seal-inputNum  seal-input" id="companyFontWidth" width="150" type="number" value="4"
-                            min="0" max="50"  unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                            min="0" max="50" readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                         <div class="btnSpan">
                             <input class="add inputBtn " value="∧" type="button" onclick="add('companyFontWidth')">
                             </input>
@@ -118,13 +119,13 @@
                         </div>
                     </li>
                     <li class="seal">
-                        <span class="seal-name"> 环排角度（夹角）:</span>
+                        <span class="seal-name"> 文字环绕度数:</span>
                         <input class="seal-inputNum  seal-input" id="characterDegree" width="150" type="text" value="210"
-                            min="0" max="360"  unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()"  maxlength="3" onkeyup="this.value=this.value.replace(/\D/g,'')"/>
+                            min="0" max="360"  unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                         <div class="btnSpan">
-                            <input class="add inputBtn " value="∧" type="button" onclick="addUp('characterDegree')">
+                            <input class="add inputBtn " value="∧" type="button" onclick="add('characterDegree')">
                             </input>
-                            <input class="subtraction inputBtn inputBtn-top" type="button" value="∨" onclick="subtractionDwn('characterDegree')"></input>
+                            <input class="subtraction inputBtn inputBtn-top" type="button" value="∨" onclick="subtraction('characterDegree')"></input>
                         </div>
                     </li>
                 </ul>
@@ -136,9 +137,9 @@
                             oninput=" makeEseal()" onporpertychange=" makeEseal()" onkeyup="this.value=this.value.replace(/\s+/g,'')" />
                     </li>
                     <li class="seal">
-                        <span class="seal-name sealWords"  > 五角星下横排文字字高 ： </span>
-                        <input   class="seal-inputNum  seal-input inputWords" id="drawSealFontSize" width="150" type="number" value="7"
-                            min="1" max="17"  unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                        <span class="seal-name"> 文字大小 ： </span>
+                        <input class="seal-inputNum  seal-input" id="drawSealFontSize" width="150" type="number" value="7"
+                            min="1" max="17" readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                         <div class="btnSpan">
                             <input class="add inputBtn " value="∧" type="button" onclick="add('drawSealFontSize')">
                             </input>
@@ -148,7 +149,7 @@
                     <li class="seal">
                         <span class="seal-name"> 文字宽度比： </span>
                         <input class="seal-inputNum  seal-input" id="drawSealMaxWidth" width="150" type="number" value="16"
-                            min="1" max="50"  unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                            min="1" max="50" readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                         <div class="btnSpan">
                             <input class="add inputBtn " value="∧" type="button" onclick="add('drawSealMaxWidth')">
                             </input>
@@ -156,14 +157,13 @@
                         </div>
                     </li>
                     <li class="seal">
-                        <span class="seal-name sealWords"  > 中心线到下横排字顶端距离： </span>
-                        <input  class="seal-inputNum  seal-input inputWords" id="drawSealLocation" width="150" type="number" value="6.5" max="20"
-                             unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                        <span class="seal-name"> 到下横排字距离 ： </span>
+                        <input class="seal-inputNum  seal-input" id="drawSealLocation" width="150" type="number" value="6.5"
+                            max="20" readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                         <div class="btnSpan">
                             <input class="add inputBtn " value="∧" type="button" onclick="add('drawSealLocation')">
                             </input>
-                            <input class="subtraction inputBtn inputBtn-top" type="button" value="∨"
-                                onclick="subtraction('drawSealLocation')"></input>
+                            <input class="subtraction inputBtn inputBtn-top" type="button" value="∨" onclick="subtraction('drawSealLocation')"></input>
                         </div>
                     </li>
                 </ul>
@@ -177,7 +177,7 @@
                     <li class="seal">
                         <span class="seal-name"> 防伪码文字大小 ： </span>
                         <input class="seal-inputNum  seal-input" id="securityCodeFontSize" width="150" type="number"
-                            min="0" value="3" max="3.5"  unselectable="on" oninput=" makeEseal()"
+                            min="0" value="3" max="3.5" readonly unselectable="on" oninput=" makeEseal()"
                             onporpertychange=" makeEseal()" />
                         <div class="btnSpan">
                             <input class="add inputBtn " value="∧" type="button" onclick="add('securityCodeFontSize')">
@@ -193,7 +193,7 @@
                         <!-- 五角星位置: -->
                         <span class="seal-name"> 五角星大小: </span>
                         <input class="seal-inputNum  seal-input" id="starX" width="150" type="number" value="13" min="0"
-                            max="30"  unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                            max="30" readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
 
                         <div class="btnSpan">
                             <input class="add inputBtn " value="∧" type="button" onclick="add('starX')"> </input>
@@ -205,7 +205,7 @@
                         <span class="seal-name"> 偏移单位: </span>
 
                         <input class="seal-inputNum  seal-input" id="fiveStarX" width="150" value="0" min="0" max="3.5"
-                            type="number"  unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
+                            type="number" readonly unselectable="on" oninput=" makeEseal()" onporpertychange=" makeEseal()" />
                         <div class="btnSpan">
                             <input class="add inputBtn " value="∧" type="button" onclick="add('fiveStarX')"> </input>
                             <input class="subtraction inputBtn inputBtn-top" type="button" value="∨" onclick="subtraction('fiveStarX')"></input>
